@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrSendMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrSend">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="project" jdbcType="VARCHAR" property="project" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="operate_user_id" jdbcType="VARCHAR" property="operateUserId" />
+    <result column="operate_user_name" jdbcType="VARCHAR" property="operateUserName" />
+    <result column="connId" jdbcType="VARCHAR" property="connid" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="detail" jdbcType="VARCHAR" property="detail" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="if_read" jdbcType="INTEGER" property="ifRead" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, project, method,operate_user_id, operate_user_name, connId, time, detail, status, remarks,
+    create_time,update_time, if_read,type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_fems_csr_send
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from v_fems_csr_send
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrSend">
+    insert into v_fems_csr_send (id, user_id, project, 
+      method, operate_user_id,operate_user_name, connId,
+      time, detail, status, 
+      remarks, create_time,update_time, if_read,type
+      )
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR}, #{project,jdbcType=VARCHAR},
+      #{method,jdbcType=VARCHAR}, #{operateUserId,jdbcType=VARCHAR}, #{operateUserName,jdbcType=VARCHAR}, #{connid,jdbcType=VARCHAR},
+      #{time,jdbcType=TIMESTAMP}, #{detail,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{remarks,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{ifRead,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrSend" useGeneratedKeys="true" keyColumn="id">
+    insert into v_fems_csr_send
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="project != null">
+        project,
+      </if>
+      <if test="method != null">
+        method,
+      </if>
+      <if test="operateUserId != null">
+        operate_user_id,
+      </if>
+      <if test="operateUserName != null">
+        operate_user_name,
+      </if>
+      <if test="connid != null">
+        connId,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="detail != null">
+        detail,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="ifRead != null">
+        if_read,
+      </if>
+        <if test="type != null">
+            type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="project != null">
+        #{project,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="operateUserId != null">
+        #{operateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="operateUserName != null">
+        #{operateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="connid != null">
+        #{connid,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifRead != null">
+        #{ifRead,jdbcType=INTEGER},
+      </if>
+        <if test="type != null">
+            #{type,jdbcType=INTEGER},
+        </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.small.business.entity.po.VFemsCsrSend">
+    update v_fems_csr_send
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="project != null">
+        project = #{project,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
+        method = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="operateUserId != null">
+        operate_user_id = #{operateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="operateUserName != null">
+        operate_user_name = #{operateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="connid != null">
+        connId = #{connid,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="detail != null">
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifRead != null">
+        if_read = #{ifRead,jdbcType=INTEGER},
+      </if>
+        <if test="type != null">
+            type = #{type,jdbcType=INTEGER},
+        </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.small.business.entity.po.VFemsCsrSend">
+    update v_fems_csr_send
+    set user_id = #{userId,jdbcType=VARCHAR},
+      project = #{project,jdbcType=VARCHAR},
+      method = #{method,jdbcType=VARCHAR},
+      operate_user_id = #{operateUserId,jdbcType=VARCHAR},
+      operate_user_name = #{operateUserName,jdbcType=VARCHAR},
+      connId = #{connid,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      detail = #{detail,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      if_read = #{ifRead,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

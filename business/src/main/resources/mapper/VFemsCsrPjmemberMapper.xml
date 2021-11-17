@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrPjmemberMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrPjmember">
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="pjmem_pj_id" jdbcType="VARCHAR" property="pjmemPjId" />
+    <result column="pj_no" jdbcType="VARCHAR" property="pjNo" />
+    <result column="pj_name" jdbcType="VARCHAR" property="pjName" />
+  </resultMap>
+  <select id="selectByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from v_fems_csr_pjmember where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByUpId" parameterType="java.lang.String" resultType="java.lang.String">
+   SELECT b.user_id from v_fems_csr_unitprofile2 a,v_fems_csr_pjmember b where a.up_pj_id=b.pjmem_pj_id and  a.up_id=#{upId,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrPjmember">
+    insert into v_fems_csr_pjmember (user_id, user_name, pjmem_pj_id, 
+      pj_no, pj_name)
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{pjmemPjId,jdbcType=VARCHAR}, 
+      #{pjNo,jdbcType=VARCHAR}, #{pjName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrPjmember">
+    insert into v_fems_csr_pjmember
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="pjmemPjId != null">
+        pjmem_pj_id,
+      </if>
+      <if test="pjNo != null">
+        pj_no,
+      </if>
+      <if test="pjName != null">
+        pj_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="pjmemPjId != null">
+        #{pjmemPjId,jdbcType=VARCHAR},
+      </if>
+      <if test="pjNo != null">
+        #{pjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pjName != null">
+        #{pjName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

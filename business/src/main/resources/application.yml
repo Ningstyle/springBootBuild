@@ -1,0 +1,118 @@
+system:
+  type: BUSINESS
+
+# 配置文件加密key 生产环境中可通过环境变量、命令行等形式进行设置
+jasypt:
+  encryptor:
+    password: small
+
+server:
+  port: 9092
+  servlet:
+    context-path: /business
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+
+logging:
+  config: classpath:log4j2.xml
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  global-config:
+    banner: false
+#    db-config:
+#      id-type: auto
+  type-enums-package: com.small.business.enums
+  type-aliases-package: com.small.business.entity.po,com.small.business.entity.dto
+
+spring:
+  # 数据源
+  datasource:
+    url: jdbc:mysql://10.12.9.219:3306/dlprd?useUnicode=true&characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
+    username: AlsglA
+    password: qwer1234
+    # Jasypt加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果) 以下解密结果为123456
+#    password: ENC(F4B0s6u9xcDw3V+P0qC4CA==)
+
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    # Druid StatViewServlet配置
+    druid:
+      stat-view-servlet:
+        # 默认true 内置监控页面首页/druid/index.html
+        enabled: true
+        url-pattern: /druid/*
+        # 允许清空统计数据
+        reset-enable: true
+        login-username: root
+#        login-password: ENC(F4B0s6u9xcDw3V+P0qC4CA==)
+        login-password: 123456
+        # IP白名单 多个逗号分隔
+        allow:
+        # IP黑名单
+        deny:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non-null
+    serialization:
+      fail-on-empty-beans: false
+  redis:
+    #数据库索引
+    database: 0
+    host: 10.12.9.219
+    port: 6379
+#    password: root
+    lettuce:
+      pool:
+        #最大连接数
+        max-active: 8
+        #最大阻塞等待时间(负数表示没限制)
+        max-wait: -1
+        #最大空闲
+        max-idle: 8
+        #最小空闲
+        min-idle: 0
+        #连接超时时间
+        timeout: 10000
+
+
+# Actuator
+management:
+  health:
+    status:
+      http-mapping:
+        DOWN: 200
+        OUT_OF_SERVICE: 200
+        FATAL: 200
+        UNKNOWN: 200
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      base-path: /small/actuator/
+      exposure:
+        include: '*'
+
+# Swagger界面内容配置
+swagger:
+  title: small API接口文档
+  description: small Api Documentation
+  version: 1.0.0
+  termsOfServiceUrl: https://blog.csdn.net/allen_lu_hh
+  contact:
+    name: small
+    url: http://funnylu.top/
+    email: allen_lu_hh@163.com
+
+upload: /usr/local/src
+#upload: D:\\file\\business\\
+#userPath: 10.1.29.141:7111  #测试
+userPath: http://10.12.7.200:7111  #生产

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrBoltConfigurationMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrBoltConfiguration">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="conn_id" jdbcType="VARCHAR" property="connId" />
+    <result column="up_id" jdbcType="VARCHAR" property="upId" />
+    <result column="node" jdbcType="VARCHAR" property="node" />
+    <result column="node_id" jdbcType="BIGINT" property="nodeId" />
+    <result column="node_name" jdbcType="VARCHAR" property="nodeName" />
+    <result column="con_id" jdbcType="BIGINT" property="conId" />
+    <result column="blade" jdbcType="VARCHAR" property="blade" />
+    <result column="num" jdbcType="BIGINT" property="num" />
+    <result column="specification" jdbcType="VARCHAR" property="specification" />
+    <result column="construction_moment" jdbcType="VARCHAR" property="constructionMoment" />
+    <result column="hertz_moment" jdbcType="VARCHAR" property="hertzMoment" />
+    <result column="year_moment" jdbcType="VARCHAR" property="yearMoment" />
+    <result column="construction_preload" jdbcType="VARCHAR" property="constructionPreload" />
+    <result column="hertz_preload" jdbcType="VARCHAR" property="hertzPreload" />
+    <result column="year_preload" jdbcType="VARCHAR" property="yearPreload" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user_id" jdbcType="VARCHAR" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user_id" jdbcType="VARCHAR" property="updateUserId" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+    <result column="hertz_moment_times" jdbcType="VARCHAR" property="hertzMomentTimes" />
+    <result column="year_moment_times" jdbcType="VARCHAR" property="yearMomentTimes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, conn_id, up_id, node, node_id, node_name, con_id, blade, num, specification, 
+    construction_moment, hertz_moment, year_moment, construction_preload, hertz_preload, 
+    year_preload, create_time, create_user_id, create_user_name, update_time, update_user_id, 
+    update_user_name, role, hertz_moment_times, year_moment_times
+  </sql>
+  <select id="selectUpIds" resultType="com.small.business.entity.vo.VFemsCsrUpVo">
+    SELECT a.id,a.up_id upId,b.up_seatno upSeatno,b.up_running_position_no upRunningPositionNo from  v_fems_csr_bolt_configuration a,v_fems_csr_unitprofile2 b where a.up_id=b.up_id
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_fems_csr_bolt_configuration
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from v_fems_csr_bolt_configuration
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrBoltConfiguration">
+    insert into v_fems_csr_bolt_configuration (id, conn_id, up_id, 
+      node, node_id, node_name, 
+      con_id, blade, num, specification, 
+      construction_moment, hertz_moment, year_moment, 
+      construction_preload, hertz_preload, year_preload, 
+      create_time, create_user_id, create_user_name, 
+      update_time, update_user_id, update_user_name, 
+      role, hertz_moment_times, year_moment_times
+      )
+    values (#{id,jdbcType=BIGINT}, #{connId,jdbcType=VARCHAR}, #{upId,jdbcType=VARCHAR}, 
+      #{node,jdbcType=VARCHAR}, #{nodeId,jdbcType=BIGINT}, #{nodeName,jdbcType=VARCHAR}, 
+      #{conId,jdbcType=BIGINT}, #{blade,jdbcType=VARCHAR}, #{num,jdbcType=BIGINT}, #{specification,jdbcType=VARCHAR}, 
+      #{constructionMoment,jdbcType=VARCHAR}, #{hertzMoment,jdbcType=VARCHAR}, #{yearMoment,jdbcType=VARCHAR}, 
+      #{constructionPreload,jdbcType=VARCHAR}, #{hertzPreload,jdbcType=VARCHAR}, #{yearPreload,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=VARCHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=VARCHAR}, #{updateUserName,jdbcType=VARCHAR}, 
+      #{role,jdbcType=VARCHAR}, #{hertzMomentTimes,jdbcType=VARCHAR}, #{yearMomentTimes,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrBoltConfiguration">
+    insert into v_fems_csr_bolt_configuration
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="connId != null">
+        conn_id,
+      </if>
+      <if test="upId != null">
+        up_id,
+      </if>
+      <if test="node != null">
+        node,
+      </if>
+      <if test="nodeId != null">
+        node_id,
+      </if>
+      <if test="nodeName != null">
+        node_name,
+      </if>
+      <if test="conId != null">
+        con_id,
+      </if>
+      <if test="blade != null">
+        blade,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="specification != null">
+        specification,
+      </if>
+      <if test="constructionMoment != null">
+        construction_moment,
+      </if>
+      <if test="hertzMoment != null">
+        hertz_moment,
+      </if>
+      <if test="yearMoment != null">
+        year_moment,
+      </if>
+      <if test="constructionPreload != null">
+        construction_preload,
+      </if>
+      <if test="hertzPreload != null">
+        hertz_preload,
+      </if>
+      <if test="yearPreload != null">
+        year_preload,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createUserId != null">
+        create_user_id,
+      </if>
+      <if test="createUserName != null">
+        create_user_name,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUserId != null">
+        update_user_id,
+      </if>
+      <if test="updateUserName != null">
+        update_user_name,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="hertzMomentTimes != null">
+        hertz_moment_times,
+      </if>
+      <if test="yearMomentTimes != null">
+        year_moment_times,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="connId != null">
+        #{connId,jdbcType=VARCHAR},
+      </if>
+      <if test="upId != null">
+        #{upId,jdbcType=VARCHAR},
+      </if>
+      <if test="node != null">
+        #{node,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null">
+        #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="nodeName != null">
+        #{nodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="conId != null">
+        #{conId,jdbcType=BIGINT},
+      </if>
+      <if test="blade != null">
+        #{blade,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=BIGINT},
+      </if>
+      <if test="specification != null">
+        #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionMoment != null">
+        #{constructionMoment,jdbcType=VARCHAR},
+      </if>
+      <if test="hertzMoment != null">
+        #{hertzMoment,jdbcType=VARCHAR},
+      </if>
+      <if test="yearMoment != null">
+        #{yearMoment,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionPreload != null">
+        #{constructionPreload,jdbcType=VARCHAR},
+      </if>
+      <if test="hertzPreload != null">
+        #{hertzPreload,jdbcType=VARCHAR},
+      </if>
+      <if test="yearPreload != null">
+        #{yearPreload,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserName != null">
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        #{updateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="hertzMomentTimes != null">
+        #{hertzMomentTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="yearMomentTimes != null">
+        #{yearMomentTimes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.small.business.entity.po.VFemsCsrBoltConfiguration">
+    update v_fems_csr_bolt_configuration
+    <set>
+      <if test="connId != null">
+        conn_id = #{connId,jdbcType=VARCHAR},
+      </if>
+      <if test="upId != null">
+        up_id = #{upId,jdbcType=VARCHAR},
+      </if>
+      <if test="node != null">
+        node = #{node,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null">
+        node_id = #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="nodeName != null">
+        node_name = #{nodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="conId != null">
+        con_id = #{conId,jdbcType=BIGINT},
+      </if>
+      <if test="blade != null">
+        blade = #{blade,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=BIGINT},
+      </if>
+      <if test="specification != null">
+        specification = #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionMoment != null">
+        construction_moment = #{constructionMoment,jdbcType=VARCHAR},
+      </if>
+      <if test="hertzMoment != null">
+        hertz_moment = #{hertzMoment,jdbcType=VARCHAR},
+      </if>
+      <if test="yearMoment != null">
+        year_moment = #{yearMoment,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionPreload != null">
+        construction_preload = #{constructionPreload,jdbcType=VARCHAR},
+      </if>
+      <if test="hertzPreload != null">
+        hertz_preload = #{hertzPreload,jdbcType=VARCHAR},
+      </if>
+      <if test="yearPreload != null">
+        year_preload = #{yearPreload,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserName != null">
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="hertzMomentTimes != null">
+        hertz_moment_times = #{hertzMomentTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="yearMomentTimes != null">
+        year_moment_times = #{yearMomentTimes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.small.business.entity.po.VFemsCsrBoltConfiguration">
+    update v_fems_csr_bolt_configuration
+    set conn_id = #{connId,jdbcType=VARCHAR},
+      up_id = #{upId,jdbcType=VARCHAR},
+      node = #{node,jdbcType=VARCHAR},
+      node_id = #{nodeId,jdbcType=BIGINT},
+      node_name = #{nodeName,jdbcType=VARCHAR},
+      con_id = #{conId,jdbcType=BIGINT},
+      blade = #{blade,jdbcType=VARCHAR},
+      num = #{num,jdbcType=BIGINT},
+      specification = #{specification,jdbcType=VARCHAR},
+      construction_moment = #{constructionMoment,jdbcType=VARCHAR},
+      hertz_moment = #{hertzMoment,jdbcType=VARCHAR},
+      year_moment = #{yearMoment,jdbcType=VARCHAR},
+      construction_preload = #{constructionPreload,jdbcType=VARCHAR},
+      hertz_preload = #{hertzPreload,jdbcType=VARCHAR},
+      year_preload = #{yearPreload,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR},
+      hertz_moment_times = #{hertzMomentTimes,jdbcType=VARCHAR},
+      year_moment_times = #{yearMomentTimes,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

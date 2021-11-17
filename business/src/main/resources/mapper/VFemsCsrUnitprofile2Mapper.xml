@@ -1,0 +1,1566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrUnitprofile2Mapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrUnitprofile2">
+    <id column="up_id" jdbcType="VARCHAR" property="upId" />
+    <result column="up_seatno" jdbcType="VARCHAR" property="upSeatno" />
+    <result column="up_code" jdbcType="VARCHAR" property="upCode" />
+    <result column="up_asswo_id" jdbcType="VARCHAR" property="upAsswoId" />
+    <result column="up_pj_id" jdbcType="VARCHAR" property="upPjId" />
+    <result column="up_pj_name" jdbcType="VARCHAR" property="upPjName" />
+    <result column="up_unitlevel" jdbcType="INTEGER" property="upUnitlevel" />
+    <result column="up_unitwindlevel" jdbcType="VARCHAR" property="upUnitwindlevel" />
+    <result column="up_isfinish" jdbcType="INTEGER" property="upIsfinish" />
+    <result column="up_goldwindid" jdbcType="VARCHAR" property="upGoldwindid" />
+    <result column="up_goldwind_crew_id" jdbcType="VARCHAR" property="upGoldwindCrewId" />
+    <result column="up_goldwind_crew_ip" jdbcType="VARCHAR" property="upGoldwindCrewIp" />
+    <result column="up_goldwind_crew_subnet_mask" jdbcType="VARCHAR" property="upGoldwindCrewSubnetMask" />
+    <result column="up_goldwind_crew_gateway" jdbcType="VARCHAR" property="upGoldwindCrewGateway" />
+    <result column="up_lastrepairdate" jdbcType="VARCHAR" property="upLastrepairdate" />
+    <result column="up_repairtype" jdbcType="INTEGER" property="upRepairtype" />
+    <result column="up_cutinwind" jdbcType="VARCHAR" property="upCutinwind" />
+    <result column="up_cutoutwind" jdbcType="VARCHAR" property="upCutoutwind" />
+    <result column="up_longitude" jdbcType="VARCHAR" property="upLongitude" />
+    <result column="up_latitude" jdbcType="VARCHAR" property="upLatitude" />
+    <result column="up_unit_capacity" jdbcType="VARCHAR" property="upUnitCapacity" />
+    <result column="up_variableflow_config" jdbcType="VARCHAR" property="upVariableflowConfig" />
+    <result column="up_pitch_config" jdbcType="VARCHAR" property="upPitchConfig" />
+    <result column="up_cooling" jdbcType="VARCHAR" property="upCooling" />
+    <result column="up_models" jdbcType="VARCHAR" property="upModels" />
+    <result column="up_blade" jdbcType="VARCHAR" property="upBlade" />
+    <result column="up_bus_type" jdbcType="VARCHAR" property="upBusType" />
+    <result column="up_hubheight" jdbcType="VARCHAR" property="upHubheight" />
+    <result column="up_basic" jdbcType="VARCHAR" property="upBasic" />
+    <result column="up_basic_other" jdbcType="VARCHAR" property="upBasicOther" />
+    <result column="up_tower" jdbcType="VARCHAR" property="upTower" />
+    <result column="up_tower_flange" jdbcType="VARCHAR" property="upTowerFlange" />
+    <result column="up_tower_link" jdbcType="VARCHAR" property="upTowerLink" />
+    <result column="up_tower_blueprint" jdbcType="VARCHAR" property="upTowerBlueprint" />
+    <result column="up_micro_sitesel_flg" jdbcType="VARCHAR" property="upMicroSiteselFlg" />
+    <result column="up_load_adap_analy_rep" jdbcType="VARCHAR" property="upLoadAdapAnalyRep" />
+    <result column="up_impeller_diameter" jdbcType="VARCHAR" property="upImpellerDiameter" />
+    <result column="up_running_position_no" jdbcType="VARCHAR" property="upRunningPositionNo" />
+    <result column="up_base_excavation_time" jdbcType="VARCHAR" property="upBaseExcavationTime" />
+    <result column="up_base_construction_time" jdbcType="VARCHAR" property="upBaseConstructionTime" />
+    <result column="up_receive_shipment_begin_time" jdbcType="VARCHAR" property="upReceiveShipmentBeginTime" />
+    <result column="up_receive_shipment_end_time" jdbcType="VARCHAR" property="upReceiveShipmentEndTime" />
+    <result column="up_hoisting_begin_time" jdbcType="VARCHAR" property="upHoistingBeginTime" />
+    <result column="up_hoisting_end_time" jdbcType="VARCHAR" property="upHoistingEndTime" />
+    <result column="up_static_adjust_begin_time" jdbcType="VARCHAR" property="upStaticAdjustBeginTime" />
+    <result column="up_static_adjust_end_time" jdbcType="VARCHAR" property="upStaticAdjustEndTime" />
+    <result column="up_dynamic_adjust_begin_time" jdbcType="VARCHAR" property="upDynamicAdjustBeginTime" />
+    <result column="up_dynamic_adjust_end_time" jdbcType="VARCHAR" property="upDynamicAdjustEndTime" />
+    <result column="up_commissioning_begin_time" jdbcType="VARCHAR" property="upCommissioningBeginTime" />
+    <result column="up_commissioning_end_time" jdbcType="VARCHAR" property="upCommissioningEndTime" />
+    <result column="up_pre_acceptance_signature_dat" jdbcType="VARCHAR" property="upPreAcceptanceSignatureDat" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="create_user_id" jdbcType="VARCHAR" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="update_user_id" jdbcType="VARCHAR" property="updateUserId" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="delete_flg" jdbcType="INTEGER" property="deleteFlg" />
+    <result column="up_wind_speed_rating_unit" jdbcType="VARCHAR" property="upWindSpeedRatingUnit" />
+    <result column="up_whether_maintenance_over" jdbcType="VARCHAR" property="upWhetherMaintenanceOver" />
+    <result column="up_last_maintenance_time" jdbcType="VARCHAR" property="upLastMaintenanceTime" />
+    <result column="up_classification_maintenance_t" jdbcType="VARCHAR" property="upClassificationMaintenanceT" />
+    <result column="up_ticket_reservation_longitude" jdbcType="VARCHAR" property="upTicketReservationLongitude" />
+    <result column="up_ticket_reservation_latitude" jdbcType="VARCHAR" property="upTicketReservationLatitude" />
+    <result column="up_converter_box_number" jdbcType="VARCHAR" property="upConverterBoxNumber" />
+    <result column="up_water_cooler_number" jdbcType="VARCHAR" property="upWaterCoolerNumber" />
+    <result column="up_master_control_cabinet_numbe" jdbcType="VARCHAR" property="upMasterControlCabinetNumbe" />
+    <result column="up_dudt_ark_number" jdbcType="VARCHAR" property="upDudtArkNumber" />
+    <result column="up_brake_resistance_number" jdbcType="VARCHAR" property="upBrakeResistanceNumber" />
+    <result column="up_cooling_fan_number" jdbcType="VARCHAR" property="upCoolingFanNumber" />
+    <result column="up_engine_room_number" jdbcType="VARCHAR" property="upEngineRoomNumber" />
+    <result column="up_wheel_hub_number" jdbcType="VARCHAR" property="upWheelHubNumber" />
+    <result column="up_generator_number" jdbcType="VARCHAR" property="upGeneratorNumber" />
+    <result column="up_leaf_blade_number" jdbcType="VARCHAR" property="upLeafBladeNumber" />
+    <result column="up_converter_manufacturer" jdbcType="VARCHAR" property="upConverterManufacturer" />
+    <result column="up_water_cooler_manufacturer" jdbcType="VARCHAR" property="upWaterCoolerManufacturer" />
+    <result column="up_main_control_cabinet_manufac" jdbcType="VARCHAR" property="upMainControlCabinetManufac" />
+    <result column="up_dudt_ark_manufacturer" jdbcType="VARCHAR" property="upDudtArkManufacturer" />
+    <result column="up_brake_resistance_manufacture" jdbcType="VARCHAR" property="upBrakeResistanceManufacture" />
+    <result column="up_cooling_fan_manufacturer" jdbcType="VARCHAR" property="upCoolingFanManufacturer" />
+    <result column="up_machinery_manufacturer" jdbcType="VARCHAR" property="upMachineryManufacturer" />
+    <result column="up_wheel_manufacturer" jdbcType="VARCHAR" property="upWheelManufacturer" />
+    <result column="up_generator_manufacturer" jdbcType="VARCHAR" property="upGeneratorManufacturer" />
+    <result column="up_leaf_blade_manufacturer" jdbcType="VARCHAR" property="upLeafBladeManufacturer" />
+    <result column="up_function_position" jdbcType="VARCHAR" property="upFunctionPosition" />
+    <result column="up_mat_no" jdbcType="VARCHAR" property="upMatNo" />
+    <result column="up_mat_order" jdbcType="VARCHAR" property="upMatOrder" />
+    <result column="up_plan_serial" jdbcType="VARCHAR" property="upPlanSerial" />
+    <result column="up_tower_heights" jdbcType="VARCHAR" property="upTowerHeights" />
+    <result column="up_tower_section_number" jdbcType="VARCHAR" property="upTowerSectionNumber" />
+    <result column="up_leaf_blade2_number" jdbcType="VARCHAR" property="upLeafBlade2Number" />
+    <result column="up_leaf_blade3_number" jdbcType="VARCHAR" property="upLeafBlade3Number" />
+    <result column="up_pj_no" jdbcType="VARCHAR" property="upPjNo" />
+    <result column="up_goldwind_no" jdbcType="VARCHAR" property="upGoldwindNo" />
+    <result column="up_no" jdbcType="VARCHAR" property="upNo" />
+    <result column="up_eqnr" jdbcType="VARCHAR" property="upEqnr" />
+    <result column="up_pjwo_id" jdbcType="VARCHAR" property="upPjwoId" />
+    <result column="up_into_warranty_date" jdbcType="VARCHAR" property="upIntoWarrantyDate" />
+    <result column="up_out_warranty_date" jdbcType="VARCHAR" property="upOutWarrantyDate" />
+    <result column="up_is_line_mark_unit" jdbcType="INTEGER" property="upIsLineMarkUnit" />
+    <result column="up_gener_manu_type" jdbcType="VARCHAR" property="upGenerManuType" />
+    <result column="up_gener_code" jdbcType="VARCHAR" property="upGenerCode" />
+    <result column="up_gearbox_manu_type" jdbcType="VARCHAR" property="upGearboxManuType" />
+    <result column="up_gearbox_code" jdbcType="VARCHAR" property="upGearboxCode" />
+    <result column="up_master_config" jdbcType="VARCHAR" property="upMasterConfig" />
+    <result column="up_master_program_version" jdbcType="VARCHAR" property="upMasterProgramVersion" />
+    <result column="up_variableflow_program_version" jdbcType="VARCHAR" property="upVariableflowProgramVersion" />
+    <result column="up_variablepitch_program_versio" jdbcType="VARCHAR" property="upVariablepitchProgramVersio" />
+    <result column="up_gener_cool_mode" jdbcType="VARCHAR" property="upGenerCoolMode" />
+    <result column="up_fre_convercool_mode" jdbcType="VARCHAR" property="upFreConvercoolMode" />
+    <result column="up_warranty_handover_time" jdbcType="VARCHAR" property="upWarrantyHandoverTime" />
+    <result column="up_is_devi" jdbcType="INTEGER" property="upIsDevi" />
+    <result column="up_front_protocol_num" jdbcType="VARCHAR" property="upFrontProtocolNum" />
+    <result column="up_tower_dehumidifier" jdbcType="INTEGER" property="upTowerDehumidifier" />
+    <result column="up_tower_ecsystem" jdbcType="INTEGER" property="upTowerEcsystem" />
+    <result column="up_tower_climbing" jdbcType="INTEGER" property="upTowerClimbing" />
+    <result column="up_tower_free_climbing" jdbcType="INTEGER" property="upTowerFreeClimbing" />
+    <result column="up_tower_lifting_machine" jdbcType="INTEGER" property="upTowerLiftingMachine" />
+    <result column="up_dynamo_lubricating_system" jdbcType="INTEGER" property="upDynamoLubricatingSystem" />
+    <result column="up_impeller_lubricating_system" jdbcType="VARCHAR" property="upImpellerLubricatingSystem" />
+    <result column="up_pj_mileage" jdbcType="BIGINT" property="upPjMileage" />
+    <result column="up_pitch_system" jdbcType="INTEGER" property="upPitchSystem" />
+    <result column="up_anemometry_system" jdbcType="INTEGER" property="upAnemometrySystem" />
+    <result column="up_cooling_system" jdbcType="INTEGER" property="upCoolingSystem" />
+    <result column="up_tower_electric" jdbcType="INTEGER" property="upTowerElectric" />
+    <result column="up_factory" jdbcType="VARCHAR" property="upFactory" />
+    <result column="up_product_code" jdbcType="VARCHAR" property="upProductCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    up_id, up_seatno, up_code, up_asswo_id, up_pj_id, up_pj_name, up_unitlevel, up_unitwindlevel, 
+    up_isfinish, up_goldwindid, up_goldwind_crew_id, up_goldwind_crew_ip, up_goldwind_crew_subnet_mask, 
+    up_goldwind_crew_gateway, up_lastrepairdate, up_repairtype, up_cutinwind, up_cutoutwind, 
+    up_longitude, up_latitude, up_unit_capacity, up_variableflow_config, up_pitch_config, 
+    up_cooling, up_models, up_blade, up_bus_type, up_hubheight, up_basic, up_basic_other, 
+    up_tower, up_tower_flange, up_tower_link, up_tower_blueprint, up_micro_sitesel_flg, 
+    up_load_adap_analy_rep, up_impeller_diameter, up_running_position_no, up_base_excavation_time, 
+    up_base_construction_time, up_receive_shipment_begin_time, up_receive_shipment_end_time, 
+    up_hoisting_begin_time, up_hoisting_end_time, up_static_adjust_begin_time, up_static_adjust_end_time, 
+    up_dynamic_adjust_begin_time, up_dynamic_adjust_end_time, up_commissioning_begin_time, 
+    up_commissioning_end_time, up_pre_acceptance_signature_dat, create_time, create_user_id, 
+    create_user_name, update_time, update_user_id, update_user_name, delete_flg, up_wind_speed_rating_unit, 
+    up_whether_maintenance_over, up_last_maintenance_time, up_classification_maintenance_t, 
+    up_ticket_reservation_longitude, up_ticket_reservation_latitude, up_converter_box_number, 
+    up_water_cooler_number, up_master_control_cabinet_numbe, up_dudt_ark_number, up_brake_resistance_number, 
+    up_cooling_fan_number, up_engine_room_number, up_wheel_hub_number, up_generator_number, 
+    up_leaf_blade_number, up_converter_manufacturer, up_water_cooler_manufacturer, up_main_control_cabinet_manufac, 
+    up_dudt_ark_manufacturer, up_brake_resistance_manufacture, up_cooling_fan_manufacturer, 
+    up_machinery_manufacturer, up_wheel_manufacturer, up_generator_manufacturer, up_leaf_blade_manufacturer, 
+    up_function_position, up_mat_no, up_mat_order, up_plan_serial, up_tower_heights, 
+    up_tower_section_number, up_leaf_blade2_number, up_leaf_blade3_number, up_pj_no, 
+    up_goldwind_no, up_no, up_eqnr, up_pjwo_id, up_into_warranty_date, up_out_warranty_date, 
+    up_is_line_mark_unit, up_gener_manu_type, up_gener_code, up_gearbox_manu_type, up_gearbox_code, 
+    up_master_config, up_master_program_version, up_variableflow_program_version, up_variablepitch_program_versio, 
+    up_gener_cool_mode, up_fre_convercool_mode, up_warranty_handover_time, up_is_devi, 
+    up_front_protocol_num, up_tower_dehumidifier, up_tower_ecsystem, up_tower_climbing, 
+    up_tower_free_climbing, up_tower_lifting_machine, up_dynamo_lubricating_system, up_impeller_lubricating_system, 
+    up_pj_mileage, up_pitch_system, up_anemometry_system, up_cooling_system, up_tower_electric, 
+    up_factory, up_product_code
+  </sql>
+  <select id="selectExaminUser" parameterType="java.lang.String" resultType="java.lang.String">
+  SELECT GROUP_CONCAT(b.user_name) from v_fems_csr_unitprofile2 a,v_fems_csr_pjmember b where up_id= #{upId,jdbcType=VARCHAR} and a.up_pj_id=b.pjmem_pj_id;
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_fems_csr_unitprofile2
+    where up_id = #{upId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from v_fems_csr_unitprofile2
+    where up_id = #{upId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrUnitprofile2">
+    insert into v_fems_csr_unitprofile2 (up_id, up_seatno, up_code, 
+      up_asswo_id, up_pj_id, up_pj_name, 
+      up_unitlevel, up_unitwindlevel, up_isfinish, 
+      up_goldwindid, up_goldwind_crew_id, up_goldwind_crew_ip, 
+      up_goldwind_crew_subnet_mask, up_goldwind_crew_gateway, 
+      up_lastrepairdate, up_repairtype, up_cutinwind, 
+      up_cutoutwind, up_longitude, up_latitude, 
+      up_unit_capacity, up_variableflow_config, up_pitch_config, 
+      up_cooling, up_models, up_blade, 
+      up_bus_type, up_hubheight, up_basic, 
+      up_basic_other, up_tower, up_tower_flange, 
+      up_tower_link, up_tower_blueprint, up_micro_sitesel_flg, 
+      up_load_adap_analy_rep, up_impeller_diameter, 
+      up_running_position_no, up_base_excavation_time, 
+      up_base_construction_time, up_receive_shipment_begin_time, 
+      up_receive_shipment_end_time, up_hoisting_begin_time, 
+      up_hoisting_end_time, up_static_adjust_begin_time, 
+      up_static_adjust_end_time, up_dynamic_adjust_begin_time, 
+      up_dynamic_adjust_end_time, up_commissioning_begin_time, 
+      up_commissioning_end_time, up_pre_acceptance_signature_dat, 
+      create_time, create_user_id, create_user_name, 
+      update_time, update_user_id, update_user_name, 
+      delete_flg, up_wind_speed_rating_unit, up_whether_maintenance_over, 
+      up_last_maintenance_time, up_classification_maintenance_t, 
+      up_ticket_reservation_longitude, up_ticket_reservation_latitude, 
+      up_converter_box_number, up_water_cooler_number, 
+      up_master_control_cabinet_numbe, up_dudt_ark_number, 
+      up_brake_resistance_number, up_cooling_fan_number, 
+      up_engine_room_number, up_wheel_hub_number, up_generator_number, 
+      up_leaf_blade_number, up_converter_manufacturer, 
+      up_water_cooler_manufacturer, up_main_control_cabinet_manufac, 
+      up_dudt_ark_manufacturer, up_brake_resistance_manufacture, 
+      up_cooling_fan_manufacturer, up_machinery_manufacturer, 
+      up_wheel_manufacturer, up_generator_manufacturer, 
+      up_leaf_blade_manufacturer, up_function_position, 
+      up_mat_no, up_mat_order, up_plan_serial, 
+      up_tower_heights, up_tower_section_number, up_leaf_blade2_number, 
+      up_leaf_blade3_number, up_pj_no, up_goldwind_no, 
+      up_no, up_eqnr, up_pjwo_id, 
+      up_into_warranty_date, up_out_warranty_date, 
+      up_is_line_mark_unit, up_gener_manu_type, up_gener_code, 
+      up_gearbox_manu_type, up_gearbox_code, up_master_config, 
+      up_master_program_version, up_variableflow_program_version, 
+      up_variablepitch_program_versio, up_gener_cool_mode, 
+      up_fre_convercool_mode, up_warranty_handover_time, 
+      up_is_devi, up_front_protocol_num, up_tower_dehumidifier, 
+      up_tower_ecsystem, up_tower_climbing, up_tower_free_climbing, 
+      up_tower_lifting_machine, up_dynamo_lubricating_system, 
+      up_impeller_lubricating_system, up_pj_mileage, 
+      up_pitch_system, up_anemometry_system, up_cooling_system, 
+      up_tower_electric, up_factory, up_product_code
+      )
+    values (#{upId,jdbcType=VARCHAR}, #{upSeatno,jdbcType=VARCHAR}, #{upCode,jdbcType=VARCHAR}, 
+      #{upAsswoId,jdbcType=VARCHAR}, #{upPjId,jdbcType=VARCHAR}, #{upPjName,jdbcType=VARCHAR}, 
+      #{upUnitlevel,jdbcType=INTEGER}, #{upUnitwindlevel,jdbcType=VARCHAR}, #{upIsfinish,jdbcType=INTEGER}, 
+      #{upGoldwindid,jdbcType=VARCHAR}, #{upGoldwindCrewId,jdbcType=VARCHAR}, #{upGoldwindCrewIp,jdbcType=VARCHAR}, 
+      #{upGoldwindCrewSubnetMask,jdbcType=VARCHAR}, #{upGoldwindCrewGateway,jdbcType=VARCHAR}, 
+      #{upLastrepairdate,jdbcType=VARCHAR}, #{upRepairtype,jdbcType=INTEGER}, #{upCutinwind,jdbcType=VARCHAR}, 
+      #{upCutoutwind,jdbcType=VARCHAR}, #{upLongitude,jdbcType=VARCHAR}, #{upLatitude,jdbcType=VARCHAR}, 
+      #{upUnitCapacity,jdbcType=VARCHAR}, #{upVariableflowConfig,jdbcType=VARCHAR}, #{upPitchConfig,jdbcType=VARCHAR}, 
+      #{upCooling,jdbcType=VARCHAR}, #{upModels,jdbcType=VARCHAR}, #{upBlade,jdbcType=VARCHAR}, 
+      #{upBusType,jdbcType=VARCHAR}, #{upHubheight,jdbcType=VARCHAR}, #{upBasic,jdbcType=VARCHAR}, 
+      #{upBasicOther,jdbcType=VARCHAR}, #{upTower,jdbcType=VARCHAR}, #{upTowerFlange,jdbcType=VARCHAR}, 
+      #{upTowerLink,jdbcType=VARCHAR}, #{upTowerBlueprint,jdbcType=VARCHAR}, #{upMicroSiteselFlg,jdbcType=VARCHAR}, 
+      #{upLoadAdapAnalyRep,jdbcType=VARCHAR}, #{upImpellerDiameter,jdbcType=VARCHAR}, 
+      #{upRunningPositionNo,jdbcType=VARCHAR}, #{upBaseExcavationTime,jdbcType=VARCHAR}, 
+      #{upBaseConstructionTime,jdbcType=VARCHAR}, #{upReceiveShipmentBeginTime,jdbcType=VARCHAR}, 
+      #{upReceiveShipmentEndTime,jdbcType=VARCHAR}, #{upHoistingBeginTime,jdbcType=VARCHAR}, 
+      #{upHoistingEndTime,jdbcType=VARCHAR}, #{upStaticAdjustBeginTime,jdbcType=VARCHAR}, 
+      #{upStaticAdjustEndTime,jdbcType=VARCHAR}, #{upDynamicAdjustBeginTime,jdbcType=VARCHAR}, 
+      #{upDynamicAdjustEndTime,jdbcType=VARCHAR}, #{upCommissioningBeginTime,jdbcType=VARCHAR}, 
+      #{upCommissioningEndTime,jdbcType=VARCHAR}, #{upPreAcceptanceSignatureDat,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{createUserId,jdbcType=VARCHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=VARCHAR}, #{updateUserId,jdbcType=VARCHAR}, #{updateUserName,jdbcType=VARCHAR}, 
+      #{deleteFlg,jdbcType=INTEGER}, #{upWindSpeedRatingUnit,jdbcType=VARCHAR}, #{upWhetherMaintenanceOver,jdbcType=VARCHAR}, 
+      #{upLastMaintenanceTime,jdbcType=VARCHAR}, #{upClassificationMaintenanceT,jdbcType=VARCHAR}, 
+      #{upTicketReservationLongitude,jdbcType=VARCHAR}, #{upTicketReservationLatitude,jdbcType=VARCHAR}, 
+      #{upConverterBoxNumber,jdbcType=VARCHAR}, #{upWaterCoolerNumber,jdbcType=VARCHAR}, 
+      #{upMasterControlCabinetNumbe,jdbcType=VARCHAR}, #{upDudtArkNumber,jdbcType=VARCHAR}, 
+      #{upBrakeResistanceNumber,jdbcType=VARCHAR}, #{upCoolingFanNumber,jdbcType=VARCHAR}, 
+      #{upEngineRoomNumber,jdbcType=VARCHAR}, #{upWheelHubNumber,jdbcType=VARCHAR}, #{upGeneratorNumber,jdbcType=VARCHAR}, 
+      #{upLeafBladeNumber,jdbcType=VARCHAR}, #{upConverterManufacturer,jdbcType=VARCHAR}, 
+      #{upWaterCoolerManufacturer,jdbcType=VARCHAR}, #{upMainControlCabinetManufac,jdbcType=VARCHAR}, 
+      #{upDudtArkManufacturer,jdbcType=VARCHAR}, #{upBrakeResistanceManufacture,jdbcType=VARCHAR}, 
+      #{upCoolingFanManufacturer,jdbcType=VARCHAR}, #{upMachineryManufacturer,jdbcType=VARCHAR}, 
+      #{upWheelManufacturer,jdbcType=VARCHAR}, #{upGeneratorManufacturer,jdbcType=VARCHAR}, 
+      #{upLeafBladeManufacturer,jdbcType=VARCHAR}, #{upFunctionPosition,jdbcType=VARCHAR}, 
+      #{upMatNo,jdbcType=VARCHAR}, #{upMatOrder,jdbcType=VARCHAR}, #{upPlanSerial,jdbcType=VARCHAR}, 
+      #{upTowerHeights,jdbcType=VARCHAR}, #{upTowerSectionNumber,jdbcType=VARCHAR}, #{upLeafBlade2Number,jdbcType=VARCHAR}, 
+      #{upLeafBlade3Number,jdbcType=VARCHAR}, #{upPjNo,jdbcType=VARCHAR}, #{upGoldwindNo,jdbcType=VARCHAR}, 
+      #{upNo,jdbcType=VARCHAR}, #{upEqnr,jdbcType=VARCHAR}, #{upPjwoId,jdbcType=VARCHAR}, 
+      #{upIntoWarrantyDate,jdbcType=VARCHAR}, #{upOutWarrantyDate,jdbcType=VARCHAR}, 
+      #{upIsLineMarkUnit,jdbcType=INTEGER}, #{upGenerManuType,jdbcType=VARCHAR}, #{upGenerCode,jdbcType=VARCHAR}, 
+      #{upGearboxManuType,jdbcType=VARCHAR}, #{upGearboxCode,jdbcType=VARCHAR}, #{upMasterConfig,jdbcType=VARCHAR}, 
+      #{upMasterProgramVersion,jdbcType=VARCHAR}, #{upVariableflowProgramVersion,jdbcType=VARCHAR}, 
+      #{upVariablepitchProgramVersio,jdbcType=VARCHAR}, #{upGenerCoolMode,jdbcType=VARCHAR}, 
+      #{upFreConvercoolMode,jdbcType=VARCHAR}, #{upWarrantyHandoverTime,jdbcType=VARCHAR}, 
+      #{upIsDevi,jdbcType=INTEGER}, #{upFrontProtocolNum,jdbcType=VARCHAR}, #{upTowerDehumidifier,jdbcType=INTEGER}, 
+      #{upTowerEcsystem,jdbcType=INTEGER}, #{upTowerClimbing,jdbcType=INTEGER}, #{upTowerFreeClimbing,jdbcType=INTEGER}, 
+      #{upTowerLiftingMachine,jdbcType=INTEGER}, #{upDynamoLubricatingSystem,jdbcType=INTEGER}, 
+      #{upImpellerLubricatingSystem,jdbcType=VARCHAR}, #{upPjMileage,jdbcType=BIGINT}, 
+      #{upPitchSystem,jdbcType=INTEGER}, #{upAnemometrySystem,jdbcType=INTEGER}, #{upCoolingSystem,jdbcType=INTEGER}, 
+      #{upTowerElectric,jdbcType=INTEGER}, #{upFactory,jdbcType=VARCHAR}, #{upProductCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrUnitprofile2">
+    insert into v_fems_csr_unitprofile2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="upId != null">
+        up_id,
+      </if>
+      <if test="upSeatno != null">
+        up_seatno,
+      </if>
+      <if test="upCode != null">
+        up_code,
+      </if>
+      <if test="upAsswoId != null">
+        up_asswo_id,
+      </if>
+      <if test="upPjId != null">
+        up_pj_id,
+      </if>
+      <if test="upPjName != null">
+        up_pj_name,
+      </if>
+      <if test="upUnitlevel != null">
+        up_unitlevel,
+      </if>
+      <if test="upUnitwindlevel != null">
+        up_unitwindlevel,
+      </if>
+      <if test="upIsfinish != null">
+        up_isfinish,
+      </if>
+      <if test="upGoldwindid != null">
+        up_goldwindid,
+      </if>
+      <if test="upGoldwindCrewId != null">
+        up_goldwind_crew_id,
+      </if>
+      <if test="upGoldwindCrewIp != null">
+        up_goldwind_crew_ip,
+      </if>
+      <if test="upGoldwindCrewSubnetMask != null">
+        up_goldwind_crew_subnet_mask,
+      </if>
+      <if test="upGoldwindCrewGateway != null">
+        up_goldwind_crew_gateway,
+      </if>
+      <if test="upLastrepairdate != null">
+        up_lastrepairdate,
+      </if>
+      <if test="upRepairtype != null">
+        up_repairtype,
+      </if>
+      <if test="upCutinwind != null">
+        up_cutinwind,
+      </if>
+      <if test="upCutoutwind != null">
+        up_cutoutwind,
+      </if>
+      <if test="upLongitude != null">
+        up_longitude,
+      </if>
+      <if test="upLatitude != null">
+        up_latitude,
+      </if>
+      <if test="upUnitCapacity != null">
+        up_unit_capacity,
+      </if>
+      <if test="upVariableflowConfig != null">
+        up_variableflow_config,
+      </if>
+      <if test="upPitchConfig != null">
+        up_pitch_config,
+      </if>
+      <if test="upCooling != null">
+        up_cooling,
+      </if>
+      <if test="upModels != null">
+        up_models,
+      </if>
+      <if test="upBlade != null">
+        up_blade,
+      </if>
+      <if test="upBusType != null">
+        up_bus_type,
+      </if>
+      <if test="upHubheight != null">
+        up_hubheight,
+      </if>
+      <if test="upBasic != null">
+        up_basic,
+      </if>
+      <if test="upBasicOther != null">
+        up_basic_other,
+      </if>
+      <if test="upTower != null">
+        up_tower,
+      </if>
+      <if test="upTowerFlange != null">
+        up_tower_flange,
+      </if>
+      <if test="upTowerLink != null">
+        up_tower_link,
+      </if>
+      <if test="upTowerBlueprint != null">
+        up_tower_blueprint,
+      </if>
+      <if test="upMicroSiteselFlg != null">
+        up_micro_sitesel_flg,
+      </if>
+      <if test="upLoadAdapAnalyRep != null">
+        up_load_adap_analy_rep,
+      </if>
+      <if test="upImpellerDiameter != null">
+        up_impeller_diameter,
+      </if>
+      <if test="upRunningPositionNo != null">
+        up_running_position_no,
+      </if>
+      <if test="upBaseExcavationTime != null">
+        up_base_excavation_time,
+      </if>
+      <if test="upBaseConstructionTime != null">
+        up_base_construction_time,
+      </if>
+      <if test="upReceiveShipmentBeginTime != null">
+        up_receive_shipment_begin_time,
+      </if>
+      <if test="upReceiveShipmentEndTime != null">
+        up_receive_shipment_end_time,
+      </if>
+      <if test="upHoistingBeginTime != null">
+        up_hoisting_begin_time,
+      </if>
+      <if test="upHoistingEndTime != null">
+        up_hoisting_end_time,
+      </if>
+      <if test="upStaticAdjustBeginTime != null">
+        up_static_adjust_begin_time,
+      </if>
+      <if test="upStaticAdjustEndTime != null">
+        up_static_adjust_end_time,
+      </if>
+      <if test="upDynamicAdjustBeginTime != null">
+        up_dynamic_adjust_begin_time,
+      </if>
+      <if test="upDynamicAdjustEndTime != null">
+        up_dynamic_adjust_end_time,
+      </if>
+      <if test="upCommissioningBeginTime != null">
+        up_commissioning_begin_time,
+      </if>
+      <if test="upCommissioningEndTime != null">
+        up_commissioning_end_time,
+      </if>
+      <if test="upPreAcceptanceSignatureDat != null">
+        up_pre_acceptance_signature_dat,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createUserId != null">
+        create_user_id,
+      </if>
+      <if test="createUserName != null">
+        create_user_name,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUserId != null">
+        update_user_id,
+      </if>
+      <if test="updateUserName != null">
+        update_user_name,
+      </if>
+      <if test="deleteFlg != null">
+        delete_flg,
+      </if>
+      <if test="upWindSpeedRatingUnit != null">
+        up_wind_speed_rating_unit,
+      </if>
+      <if test="upWhetherMaintenanceOver != null">
+        up_whether_maintenance_over,
+      </if>
+      <if test="upLastMaintenanceTime != null">
+        up_last_maintenance_time,
+      </if>
+      <if test="upClassificationMaintenanceT != null">
+        up_classification_maintenance_t,
+      </if>
+      <if test="upTicketReservationLongitude != null">
+        up_ticket_reservation_longitude,
+      </if>
+      <if test="upTicketReservationLatitude != null">
+        up_ticket_reservation_latitude,
+      </if>
+      <if test="upConverterBoxNumber != null">
+        up_converter_box_number,
+      </if>
+      <if test="upWaterCoolerNumber != null">
+        up_water_cooler_number,
+      </if>
+      <if test="upMasterControlCabinetNumbe != null">
+        up_master_control_cabinet_numbe,
+      </if>
+      <if test="upDudtArkNumber != null">
+        up_dudt_ark_number,
+      </if>
+      <if test="upBrakeResistanceNumber != null">
+        up_brake_resistance_number,
+      </if>
+      <if test="upCoolingFanNumber != null">
+        up_cooling_fan_number,
+      </if>
+      <if test="upEngineRoomNumber != null">
+        up_engine_room_number,
+      </if>
+      <if test="upWheelHubNumber != null">
+        up_wheel_hub_number,
+      </if>
+      <if test="upGeneratorNumber != null">
+        up_generator_number,
+      </if>
+      <if test="upLeafBladeNumber != null">
+        up_leaf_blade_number,
+      </if>
+      <if test="upConverterManufacturer != null">
+        up_converter_manufacturer,
+      </if>
+      <if test="upWaterCoolerManufacturer != null">
+        up_water_cooler_manufacturer,
+      </if>
+      <if test="upMainControlCabinetManufac != null">
+        up_main_control_cabinet_manufac,
+      </if>
+      <if test="upDudtArkManufacturer != null">
+        up_dudt_ark_manufacturer,
+      </if>
+      <if test="upBrakeResistanceManufacture != null">
+        up_brake_resistance_manufacture,
+      </if>
+      <if test="upCoolingFanManufacturer != null">
+        up_cooling_fan_manufacturer,
+      </if>
+      <if test="upMachineryManufacturer != null">
+        up_machinery_manufacturer,
+      </if>
+      <if test="upWheelManufacturer != null">
+        up_wheel_manufacturer,
+      </if>
+      <if test="upGeneratorManufacturer != null">
+        up_generator_manufacturer,
+      </if>
+      <if test="upLeafBladeManufacturer != null">
+        up_leaf_blade_manufacturer,
+      </if>
+      <if test="upFunctionPosition != null">
+        up_function_position,
+      </if>
+      <if test="upMatNo != null">
+        up_mat_no,
+      </if>
+      <if test="upMatOrder != null">
+        up_mat_order,
+      </if>
+      <if test="upPlanSerial != null">
+        up_plan_serial,
+      </if>
+      <if test="upTowerHeights != null">
+        up_tower_heights,
+      </if>
+      <if test="upTowerSectionNumber != null">
+        up_tower_section_number,
+      </if>
+      <if test="upLeafBlade2Number != null">
+        up_leaf_blade2_number,
+      </if>
+      <if test="upLeafBlade3Number != null">
+        up_leaf_blade3_number,
+      </if>
+      <if test="upPjNo != null">
+        up_pj_no,
+      </if>
+      <if test="upGoldwindNo != null">
+        up_goldwind_no,
+      </if>
+      <if test="upNo != null">
+        up_no,
+      </if>
+      <if test="upEqnr != null">
+        up_eqnr,
+      </if>
+      <if test="upPjwoId != null">
+        up_pjwo_id,
+      </if>
+      <if test="upIntoWarrantyDate != null">
+        up_into_warranty_date,
+      </if>
+      <if test="upOutWarrantyDate != null">
+        up_out_warranty_date,
+      </if>
+      <if test="upIsLineMarkUnit != null">
+        up_is_line_mark_unit,
+      </if>
+      <if test="upGenerManuType != null">
+        up_gener_manu_type,
+      </if>
+      <if test="upGenerCode != null">
+        up_gener_code,
+      </if>
+      <if test="upGearboxManuType != null">
+        up_gearbox_manu_type,
+      </if>
+      <if test="upGearboxCode != null">
+        up_gearbox_code,
+      </if>
+      <if test="upMasterConfig != null">
+        up_master_config,
+      </if>
+      <if test="upMasterProgramVersion != null">
+        up_master_program_version,
+      </if>
+      <if test="upVariableflowProgramVersion != null">
+        up_variableflow_program_version,
+      </if>
+      <if test="upVariablepitchProgramVersio != null">
+        up_variablepitch_program_versio,
+      </if>
+      <if test="upGenerCoolMode != null">
+        up_gener_cool_mode,
+      </if>
+      <if test="upFreConvercoolMode != null">
+        up_fre_convercool_mode,
+      </if>
+      <if test="upWarrantyHandoverTime != null">
+        up_warranty_handover_time,
+      </if>
+      <if test="upIsDevi != null">
+        up_is_devi,
+      </if>
+      <if test="upFrontProtocolNum != null">
+        up_front_protocol_num,
+      </if>
+      <if test="upTowerDehumidifier != null">
+        up_tower_dehumidifier,
+      </if>
+      <if test="upTowerEcsystem != null">
+        up_tower_ecsystem,
+      </if>
+      <if test="upTowerClimbing != null">
+        up_tower_climbing,
+      </if>
+      <if test="upTowerFreeClimbing != null">
+        up_tower_free_climbing,
+      </if>
+      <if test="upTowerLiftingMachine != null">
+        up_tower_lifting_machine,
+      </if>
+      <if test="upDynamoLubricatingSystem != null">
+        up_dynamo_lubricating_system,
+      </if>
+      <if test="upImpellerLubricatingSystem != null">
+        up_impeller_lubricating_system,
+      </if>
+      <if test="upPjMileage != null">
+        up_pj_mileage,
+      </if>
+      <if test="upPitchSystem != null">
+        up_pitch_system,
+      </if>
+      <if test="upAnemometrySystem != null">
+        up_anemometry_system,
+      </if>
+      <if test="upCoolingSystem != null">
+        up_cooling_system,
+      </if>
+      <if test="upTowerElectric != null">
+        up_tower_electric,
+      </if>
+      <if test="upFactory != null">
+        up_factory,
+      </if>
+      <if test="upProductCode != null">
+        up_product_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="upId != null">
+        #{upId,jdbcType=VARCHAR},
+      </if>
+      <if test="upSeatno != null">
+        #{upSeatno,jdbcType=VARCHAR},
+      </if>
+      <if test="upCode != null">
+        #{upCode,jdbcType=VARCHAR},
+      </if>
+      <if test="upAsswoId != null">
+        #{upAsswoId,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjId != null">
+        #{upPjId,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjName != null">
+        #{upPjName,jdbcType=VARCHAR},
+      </if>
+      <if test="upUnitlevel != null">
+        #{upUnitlevel,jdbcType=INTEGER},
+      </if>
+      <if test="upUnitwindlevel != null">
+        #{upUnitwindlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="upIsfinish != null">
+        #{upIsfinish,jdbcType=INTEGER},
+      </if>
+      <if test="upGoldwindid != null">
+        #{upGoldwindid,jdbcType=VARCHAR},
+      </if>
+      <if test="upGoldwindCrewId != null">
+        #{upGoldwindCrewId,jdbcType=VARCHAR},
+      </if>
+      <if test="upGoldwindCrewIp != null">
+        #{upGoldwindCrewIp,jdbcType=VARCHAR},
+      </if>
+      <if test="upGoldwindCrewSubnetMask != null">
+        #{upGoldwindCrewSubnetMask,jdbcType=VARCHAR},
+      </if>
+      <if test="upGoldwindCrewGateway != null">
+        #{upGoldwindCrewGateway,jdbcType=VARCHAR},
+      </if>
+      <if test="upLastrepairdate != null">
+        #{upLastrepairdate,jdbcType=VARCHAR},
+      </if>
+      <if test="upRepairtype != null">
+        #{upRepairtype,jdbcType=INTEGER},
+      </if>
+      <if test="upCutinwind != null">
+        #{upCutinwind,jdbcType=VARCHAR},
+      </if>
+      <if test="upCutoutwind != null">
+        #{upCutoutwind,jdbcType=VARCHAR},
+      </if>
+      <if test="upLongitude != null">
+        #{upLongitude,jdbcType=VARCHAR},
+      </if>
+      <if test="upLatitude != null">
+        #{upLatitude,jdbcType=VARCHAR},
+      </if>
+      <if test="upUnitCapacity != null">
+        #{upUnitCapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="upVariableflowConfig != null">
+        #{upVariableflowConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="upPitchConfig != null">
+        #{upPitchConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="upCooling != null">
+        #{upCooling,jdbcType=VARCHAR},
+      </if>
+      <if test="upModels != null">
+        #{upModels,jdbcType=VARCHAR},
+      </if>
+      <if test="upBlade != null">
+        #{upBlade,jdbcType=VARCHAR},
+      </if>
+      <if test="upBusType != null">
+        #{upBusType,jdbcType=VARCHAR},
+      </if>
+      <if test="upHubheight != null">
+        #{upHubheight,jdbcType=VARCHAR},
+      </if>
+      <if test="upBasic != null">
+        #{upBasic,jdbcType=VARCHAR},
+      </if>
+      <if test="upBasicOther != null">
+        #{upBasicOther,jdbcType=VARCHAR},
+      </if>
+      <if test="upTower != null">
+        #{upTower,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerFlange != null">
+        #{upTowerFlange,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerLink != null">
+        #{upTowerLink,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerBlueprint != null">
+        #{upTowerBlueprint,jdbcType=VARCHAR},
+      </if>
+      <if test="upMicroSiteselFlg != null">
+        #{upMicroSiteselFlg,jdbcType=VARCHAR},
+      </if>
+      <if test="upLoadAdapAnalyRep != null">
+        #{upLoadAdapAnalyRep,jdbcType=VARCHAR},
+      </if>
+      <if test="upImpellerDiameter != null">
+        #{upImpellerDiameter,jdbcType=VARCHAR},
+      </if>
+      <if test="upRunningPositionNo != null">
+        #{upRunningPositionNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upBaseExcavationTime != null">
+        #{upBaseExcavationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upBaseConstructionTime != null">
+        #{upBaseConstructionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upReceiveShipmentBeginTime != null">
+        #{upReceiveShipmentBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upReceiveShipmentEndTime != null">
+        #{upReceiveShipmentEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upHoistingBeginTime != null">
+        #{upHoistingBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upHoistingEndTime != null">
+        #{upHoistingEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upStaticAdjustBeginTime != null">
+        #{upStaticAdjustBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upStaticAdjustEndTime != null">
+        #{upStaticAdjustEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upDynamicAdjustBeginTime != null">
+        #{upDynamicAdjustBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upDynamicAdjustEndTime != null">
+        #{upDynamicAdjustEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upCommissioningBeginTime != null">
+        #{upCommissioningBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upCommissioningEndTime != null">
+        #{upCommissioningEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upPreAcceptanceSignatureDat != null">
+        #{upPreAcceptanceSignatureDat,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserName != null">
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null">
+        #{updateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlg != null">
+        #{deleteFlg,jdbcType=INTEGER},
+      </if>
+      <if test="upWindSpeedRatingUnit != null">
+        #{upWindSpeedRatingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="upWhetherMaintenanceOver != null">
+        #{upWhetherMaintenanceOver,jdbcType=VARCHAR},
+      </if>
+      <if test="upLastMaintenanceTime != null">
+        #{upLastMaintenanceTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upClassificationMaintenanceT != null">
+        #{upClassificationMaintenanceT,jdbcType=VARCHAR},
+      </if>
+      <if test="upTicketReservationLongitude != null">
+        #{upTicketReservationLongitude,jdbcType=VARCHAR},
+      </if>
+      <if test="upTicketReservationLatitude != null">
+        #{upTicketReservationLatitude,jdbcType=VARCHAR},
+      </if>
+      <if test="upConverterBoxNumber != null">
+        #{upConverterBoxNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upWaterCoolerNumber != null">
+        #{upWaterCoolerNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upMasterControlCabinetNumbe != null">
+        #{upMasterControlCabinetNumbe,jdbcType=VARCHAR},
+      </if>
+      <if test="upDudtArkNumber != null">
+        #{upDudtArkNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upBrakeResistanceNumber != null">
+        #{upBrakeResistanceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upCoolingFanNumber != null">
+        #{upCoolingFanNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upEngineRoomNumber != null">
+        #{upEngineRoomNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upWheelHubNumber != null">
+        #{upWheelHubNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upGeneratorNumber != null">
+        #{upGeneratorNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upLeafBladeNumber != null">
+        #{upLeafBladeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upConverterManufacturer != null">
+        #{upConverterManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upWaterCoolerManufacturer != null">
+        #{upWaterCoolerManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upMainControlCabinetManufac != null">
+        #{upMainControlCabinetManufac,jdbcType=VARCHAR},
+      </if>
+      <if test="upDudtArkManufacturer != null">
+        #{upDudtArkManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upBrakeResistanceManufacture != null">
+        #{upBrakeResistanceManufacture,jdbcType=VARCHAR},
+      </if>
+      <if test="upCoolingFanManufacturer != null">
+        #{upCoolingFanManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upMachineryManufacturer != null">
+        #{upMachineryManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upWheelManufacturer != null">
+        #{upWheelManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upGeneratorManufacturer != null">
+        #{upGeneratorManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upLeafBladeManufacturer != null">
+        #{upLeafBladeManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upFunctionPosition != null">
+        #{upFunctionPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="upMatNo != null">
+        #{upMatNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upMatOrder != null">
+        #{upMatOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="upPlanSerial != null">
+        #{upPlanSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerHeights != null">
+        #{upTowerHeights,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerSectionNumber != null">
+        #{upTowerSectionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upLeafBlade2Number != null">
+        #{upLeafBlade2Number,jdbcType=VARCHAR},
+      </if>
+      <if test="upLeafBlade3Number != null">
+        #{upLeafBlade3Number,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjNo != null">
+        #{upPjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upGoldwindNo != null">
+        #{upGoldwindNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upNo != null">
+        #{upNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upEqnr != null">
+        #{upEqnr,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjwoId != null">
+        #{upPjwoId,jdbcType=VARCHAR},
+      </if>
+      <if test="upIntoWarrantyDate != null">
+        #{upIntoWarrantyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="upOutWarrantyDate != null">
+        #{upOutWarrantyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="upIsLineMarkUnit != null">
+        #{upIsLineMarkUnit,jdbcType=INTEGER},
+      </if>
+      <if test="upGenerManuType != null">
+        #{upGenerManuType,jdbcType=VARCHAR},
+      </if>
+      <if test="upGenerCode != null">
+        #{upGenerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="upGearboxManuType != null">
+        #{upGearboxManuType,jdbcType=VARCHAR},
+      </if>
+      <if test="upGearboxCode != null">
+        #{upGearboxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="upMasterConfig != null">
+        #{upMasterConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="upMasterProgramVersion != null">
+        #{upMasterProgramVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="upVariableflowProgramVersion != null">
+        #{upVariableflowProgramVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="upVariablepitchProgramVersio != null">
+        #{upVariablepitchProgramVersio,jdbcType=VARCHAR},
+      </if>
+      <if test="upGenerCoolMode != null">
+        #{upGenerCoolMode,jdbcType=VARCHAR},
+      </if>
+      <if test="upFreConvercoolMode != null">
+        #{upFreConvercoolMode,jdbcType=VARCHAR},
+      </if>
+      <if test="upWarrantyHandoverTime != null">
+        #{upWarrantyHandoverTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upIsDevi != null">
+        #{upIsDevi,jdbcType=INTEGER},
+      </if>
+      <if test="upFrontProtocolNum != null">
+        #{upFrontProtocolNum,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerDehumidifier != null">
+        #{upTowerDehumidifier,jdbcType=INTEGER},
+      </if>
+      <if test="upTowerEcsystem != null">
+        #{upTowerEcsystem,jdbcType=INTEGER},
+      </if>
+      <if test="upTowerClimbing != null">
+        #{upTowerClimbing,jdbcType=INTEGER},
+      </if>
+      <if test="upTowerFreeClimbing != null">
+        #{upTowerFreeClimbing,jdbcType=INTEGER},
+      </if>
+      <if test="upTowerLiftingMachine != null">
+        #{upTowerLiftingMachine,jdbcType=INTEGER},
+      </if>
+      <if test="upDynamoLubricatingSystem != null">
+        #{upDynamoLubricatingSystem,jdbcType=INTEGER},
+      </if>
+      <if test="upImpellerLubricatingSystem != null">
+        #{upImpellerLubricatingSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjMileage != null">
+        #{upPjMileage,jdbcType=BIGINT},
+      </if>
+      <if test="upPitchSystem != null">
+        #{upPitchSystem,jdbcType=INTEGER},
+      </if>
+      <if test="upAnemometrySystem != null">
+        #{upAnemometrySystem,jdbcType=INTEGER},
+      </if>
+      <if test="upCoolingSystem != null">
+        #{upCoolingSystem,jdbcType=INTEGER},
+      </if>
+      <if test="upTowerElectric != null">
+        #{upTowerElectric,jdbcType=INTEGER},
+      </if>
+      <if test="upFactory != null">
+        #{upFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="upProductCode != null">
+        #{upProductCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.small.business.entity.po.VFemsCsrUnitprofile2">
+    update v_fems_csr_unitprofile2
+    <set>
+      <if test="upSeatno != null">
+        up_seatno = #{upSeatno,jdbcType=VARCHAR},
+      </if>
+      <if test="upCode != null">
+        up_code = #{upCode,jdbcType=VARCHAR},
+      </if>
+      <if test="upAsswoId != null">
+        up_asswo_id = #{upAsswoId,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjId != null">
+        up_pj_id = #{upPjId,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjName != null">
+        up_pj_name = #{upPjName,jdbcType=VARCHAR},
+      </if>
+      <if test="upUnitlevel != null">
+        up_unitlevel = #{upUnitlevel,jdbcType=INTEGER},
+      </if>
+      <if test="upUnitwindlevel != null">
+        up_unitwindlevel = #{upUnitwindlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="upIsfinish != null">
+        up_isfinish = #{upIsfinish,jdbcType=INTEGER},
+      </if>
+      <if test="upGoldwindid != null">
+        up_goldwindid = #{upGoldwindid,jdbcType=VARCHAR},
+      </if>
+      <if test="upGoldwindCrewId != null">
+        up_goldwind_crew_id = #{upGoldwindCrewId,jdbcType=VARCHAR},
+      </if>
+      <if test="upGoldwindCrewIp != null">
+        up_goldwind_crew_ip = #{upGoldwindCrewIp,jdbcType=VARCHAR},
+      </if>
+      <if test="upGoldwindCrewSubnetMask != null">
+        up_goldwind_crew_subnet_mask = #{upGoldwindCrewSubnetMask,jdbcType=VARCHAR},
+      </if>
+      <if test="upGoldwindCrewGateway != null">
+        up_goldwind_crew_gateway = #{upGoldwindCrewGateway,jdbcType=VARCHAR},
+      </if>
+      <if test="upLastrepairdate != null">
+        up_lastrepairdate = #{upLastrepairdate,jdbcType=VARCHAR},
+      </if>
+      <if test="upRepairtype != null">
+        up_repairtype = #{upRepairtype,jdbcType=INTEGER},
+      </if>
+      <if test="upCutinwind != null">
+        up_cutinwind = #{upCutinwind,jdbcType=VARCHAR},
+      </if>
+      <if test="upCutoutwind != null">
+        up_cutoutwind = #{upCutoutwind,jdbcType=VARCHAR},
+      </if>
+      <if test="upLongitude != null">
+        up_longitude = #{upLongitude,jdbcType=VARCHAR},
+      </if>
+      <if test="upLatitude != null">
+        up_latitude = #{upLatitude,jdbcType=VARCHAR},
+      </if>
+      <if test="upUnitCapacity != null">
+        up_unit_capacity = #{upUnitCapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="upVariableflowConfig != null">
+        up_variableflow_config = #{upVariableflowConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="upPitchConfig != null">
+        up_pitch_config = #{upPitchConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="upCooling != null">
+        up_cooling = #{upCooling,jdbcType=VARCHAR},
+      </if>
+      <if test="upModels != null">
+        up_models = #{upModels,jdbcType=VARCHAR},
+      </if>
+      <if test="upBlade != null">
+        up_blade = #{upBlade,jdbcType=VARCHAR},
+      </if>
+      <if test="upBusType != null">
+        up_bus_type = #{upBusType,jdbcType=VARCHAR},
+      </if>
+      <if test="upHubheight != null">
+        up_hubheight = #{upHubheight,jdbcType=VARCHAR},
+      </if>
+      <if test="upBasic != null">
+        up_basic = #{upBasic,jdbcType=VARCHAR},
+      </if>
+      <if test="upBasicOther != null">
+        up_basic_other = #{upBasicOther,jdbcType=VARCHAR},
+      </if>
+      <if test="upTower != null">
+        up_tower = #{upTower,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerFlange != null">
+        up_tower_flange = #{upTowerFlange,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerLink != null">
+        up_tower_link = #{upTowerLink,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerBlueprint != null">
+        up_tower_blueprint = #{upTowerBlueprint,jdbcType=VARCHAR},
+      </if>
+      <if test="upMicroSiteselFlg != null">
+        up_micro_sitesel_flg = #{upMicroSiteselFlg,jdbcType=VARCHAR},
+      </if>
+      <if test="upLoadAdapAnalyRep != null">
+        up_load_adap_analy_rep = #{upLoadAdapAnalyRep,jdbcType=VARCHAR},
+      </if>
+      <if test="upImpellerDiameter != null">
+        up_impeller_diameter = #{upImpellerDiameter,jdbcType=VARCHAR},
+      </if>
+      <if test="upRunningPositionNo != null">
+        up_running_position_no = #{upRunningPositionNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upBaseExcavationTime != null">
+        up_base_excavation_time = #{upBaseExcavationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upBaseConstructionTime != null">
+        up_base_construction_time = #{upBaseConstructionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upReceiveShipmentBeginTime != null">
+        up_receive_shipment_begin_time = #{upReceiveShipmentBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upReceiveShipmentEndTime != null">
+        up_receive_shipment_end_time = #{upReceiveShipmentEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upHoistingBeginTime != null">
+        up_hoisting_begin_time = #{upHoistingBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upHoistingEndTime != null">
+        up_hoisting_end_time = #{upHoistingEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upStaticAdjustBeginTime != null">
+        up_static_adjust_begin_time = #{upStaticAdjustBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upStaticAdjustEndTime != null">
+        up_static_adjust_end_time = #{upStaticAdjustEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upDynamicAdjustBeginTime != null">
+        up_dynamic_adjust_begin_time = #{upDynamicAdjustBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upDynamicAdjustEndTime != null">
+        up_dynamic_adjust_end_time = #{upDynamicAdjustEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upCommissioningBeginTime != null">
+        up_commissioning_begin_time = #{upCommissioningBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upCommissioningEndTime != null">
+        up_commissioning_end_time = #{upCommissioningEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upPreAcceptanceSignatureDat != null">
+        up_pre_acceptance_signature_dat = #{upPreAcceptanceSignatureDat,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null">
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserName != null">
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null">
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlg != null">
+        delete_flg = #{deleteFlg,jdbcType=INTEGER},
+      </if>
+      <if test="upWindSpeedRatingUnit != null">
+        up_wind_speed_rating_unit = #{upWindSpeedRatingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="upWhetherMaintenanceOver != null">
+        up_whether_maintenance_over = #{upWhetherMaintenanceOver,jdbcType=VARCHAR},
+      </if>
+      <if test="upLastMaintenanceTime != null">
+        up_last_maintenance_time = #{upLastMaintenanceTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upClassificationMaintenanceT != null">
+        up_classification_maintenance_t = #{upClassificationMaintenanceT,jdbcType=VARCHAR},
+      </if>
+      <if test="upTicketReservationLongitude != null">
+        up_ticket_reservation_longitude = #{upTicketReservationLongitude,jdbcType=VARCHAR},
+      </if>
+      <if test="upTicketReservationLatitude != null">
+        up_ticket_reservation_latitude = #{upTicketReservationLatitude,jdbcType=VARCHAR},
+      </if>
+      <if test="upConverterBoxNumber != null">
+        up_converter_box_number = #{upConverterBoxNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upWaterCoolerNumber != null">
+        up_water_cooler_number = #{upWaterCoolerNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upMasterControlCabinetNumbe != null">
+        up_master_control_cabinet_numbe = #{upMasterControlCabinetNumbe,jdbcType=VARCHAR},
+      </if>
+      <if test="upDudtArkNumber != null">
+        up_dudt_ark_number = #{upDudtArkNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upBrakeResistanceNumber != null">
+        up_brake_resistance_number = #{upBrakeResistanceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upCoolingFanNumber != null">
+        up_cooling_fan_number = #{upCoolingFanNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upEngineRoomNumber != null">
+        up_engine_room_number = #{upEngineRoomNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upWheelHubNumber != null">
+        up_wheel_hub_number = #{upWheelHubNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upGeneratorNumber != null">
+        up_generator_number = #{upGeneratorNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upLeafBladeNumber != null">
+        up_leaf_blade_number = #{upLeafBladeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upConverterManufacturer != null">
+        up_converter_manufacturer = #{upConverterManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upWaterCoolerManufacturer != null">
+        up_water_cooler_manufacturer = #{upWaterCoolerManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upMainControlCabinetManufac != null">
+        up_main_control_cabinet_manufac = #{upMainControlCabinetManufac,jdbcType=VARCHAR},
+      </if>
+      <if test="upDudtArkManufacturer != null">
+        up_dudt_ark_manufacturer = #{upDudtArkManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upBrakeResistanceManufacture != null">
+        up_brake_resistance_manufacture = #{upBrakeResistanceManufacture,jdbcType=VARCHAR},
+      </if>
+      <if test="upCoolingFanManufacturer != null">
+        up_cooling_fan_manufacturer = #{upCoolingFanManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upMachineryManufacturer != null">
+        up_machinery_manufacturer = #{upMachineryManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upWheelManufacturer != null">
+        up_wheel_manufacturer = #{upWheelManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upGeneratorManufacturer != null">
+        up_generator_manufacturer = #{upGeneratorManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upLeafBladeManufacturer != null">
+        up_leaf_blade_manufacturer = #{upLeafBladeManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="upFunctionPosition != null">
+        up_function_position = #{upFunctionPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="upMatNo != null">
+        up_mat_no = #{upMatNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upMatOrder != null">
+        up_mat_order = #{upMatOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="upPlanSerial != null">
+        up_plan_serial = #{upPlanSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerHeights != null">
+        up_tower_heights = #{upTowerHeights,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerSectionNumber != null">
+        up_tower_section_number = #{upTowerSectionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upLeafBlade2Number != null">
+        up_leaf_blade2_number = #{upLeafBlade2Number,jdbcType=VARCHAR},
+      </if>
+      <if test="upLeafBlade3Number != null">
+        up_leaf_blade3_number = #{upLeafBlade3Number,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjNo != null">
+        up_pj_no = #{upPjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upGoldwindNo != null">
+        up_goldwind_no = #{upGoldwindNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upNo != null">
+        up_no = #{upNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upEqnr != null">
+        up_eqnr = #{upEqnr,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjwoId != null">
+        up_pjwo_id = #{upPjwoId,jdbcType=VARCHAR},
+      </if>
+      <if test="upIntoWarrantyDate != null">
+        up_into_warranty_date = #{upIntoWarrantyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="upOutWarrantyDate != null">
+        up_out_warranty_date = #{upOutWarrantyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="upIsLineMarkUnit != null">
+        up_is_line_mark_unit = #{upIsLineMarkUnit,jdbcType=INTEGER},
+      </if>
+      <if test="upGenerManuType != null">
+        up_gener_manu_type = #{upGenerManuType,jdbcType=VARCHAR},
+      </if>
+      <if test="upGenerCode != null">
+        up_gener_code = #{upGenerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="upGearboxManuType != null">
+        up_gearbox_manu_type = #{upGearboxManuType,jdbcType=VARCHAR},
+      </if>
+      <if test="upGearboxCode != null">
+        up_gearbox_code = #{upGearboxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="upMasterConfig != null">
+        up_master_config = #{upMasterConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="upMasterProgramVersion != null">
+        up_master_program_version = #{upMasterProgramVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="upVariableflowProgramVersion != null">
+        up_variableflow_program_version = #{upVariableflowProgramVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="upVariablepitchProgramVersio != null">
+        up_variablepitch_program_versio = #{upVariablepitchProgramVersio,jdbcType=VARCHAR},
+      </if>
+      <if test="upGenerCoolMode != null">
+        up_gener_cool_mode = #{upGenerCoolMode,jdbcType=VARCHAR},
+      </if>
+      <if test="upFreConvercoolMode != null">
+        up_fre_convercool_mode = #{upFreConvercoolMode,jdbcType=VARCHAR},
+      </if>
+      <if test="upWarrantyHandoverTime != null">
+        up_warranty_handover_time = #{upWarrantyHandoverTime,jdbcType=VARCHAR},
+      </if>
+      <if test="upIsDevi != null">
+        up_is_devi = #{upIsDevi,jdbcType=INTEGER},
+      </if>
+      <if test="upFrontProtocolNum != null">
+        up_front_protocol_num = #{upFrontProtocolNum,jdbcType=VARCHAR},
+      </if>
+      <if test="upTowerDehumidifier != null">
+        up_tower_dehumidifier = #{upTowerDehumidifier,jdbcType=INTEGER},
+      </if>
+      <if test="upTowerEcsystem != null">
+        up_tower_ecsystem = #{upTowerEcsystem,jdbcType=INTEGER},
+      </if>
+      <if test="upTowerClimbing != null">
+        up_tower_climbing = #{upTowerClimbing,jdbcType=INTEGER},
+      </if>
+      <if test="upTowerFreeClimbing != null">
+        up_tower_free_climbing = #{upTowerFreeClimbing,jdbcType=INTEGER},
+      </if>
+      <if test="upTowerLiftingMachine != null">
+        up_tower_lifting_machine = #{upTowerLiftingMachine,jdbcType=INTEGER},
+      </if>
+      <if test="upDynamoLubricatingSystem != null">
+        up_dynamo_lubricating_system = #{upDynamoLubricatingSystem,jdbcType=INTEGER},
+      </if>
+      <if test="upImpellerLubricatingSystem != null">
+        up_impeller_lubricating_system = #{upImpellerLubricatingSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjMileage != null">
+        up_pj_mileage = #{upPjMileage,jdbcType=BIGINT},
+      </if>
+      <if test="upPitchSystem != null">
+        up_pitch_system = #{upPitchSystem,jdbcType=INTEGER},
+      </if>
+      <if test="upAnemometrySystem != null">
+        up_anemometry_system = #{upAnemometrySystem,jdbcType=INTEGER},
+      </if>
+      <if test="upCoolingSystem != null">
+        up_cooling_system = #{upCoolingSystem,jdbcType=INTEGER},
+      </if>
+      <if test="upTowerElectric != null">
+        up_tower_electric = #{upTowerElectric,jdbcType=INTEGER},
+      </if>
+      <if test="upFactory != null">
+        up_factory = #{upFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="upProductCode != null">
+        up_product_code = #{upProductCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where up_id = #{upId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.small.business.entity.po.VFemsCsrUnitprofile2">
+    update v_fems_csr_unitprofile2
+    set up_seatno = #{upSeatno,jdbcType=VARCHAR},
+      up_code = #{upCode,jdbcType=VARCHAR},
+      up_asswo_id = #{upAsswoId,jdbcType=VARCHAR},
+      up_pj_id = #{upPjId,jdbcType=VARCHAR},
+      up_pj_name = #{upPjName,jdbcType=VARCHAR},
+      up_unitlevel = #{upUnitlevel,jdbcType=INTEGER},
+      up_unitwindlevel = #{upUnitwindlevel,jdbcType=VARCHAR},
+      up_isfinish = #{upIsfinish,jdbcType=INTEGER},
+      up_goldwindid = #{upGoldwindid,jdbcType=VARCHAR},
+      up_goldwind_crew_id = #{upGoldwindCrewId,jdbcType=VARCHAR},
+      up_goldwind_crew_ip = #{upGoldwindCrewIp,jdbcType=VARCHAR},
+      up_goldwind_crew_subnet_mask = #{upGoldwindCrewSubnetMask,jdbcType=VARCHAR},
+      up_goldwind_crew_gateway = #{upGoldwindCrewGateway,jdbcType=VARCHAR},
+      up_lastrepairdate = #{upLastrepairdate,jdbcType=VARCHAR},
+      up_repairtype = #{upRepairtype,jdbcType=INTEGER},
+      up_cutinwind = #{upCutinwind,jdbcType=VARCHAR},
+      up_cutoutwind = #{upCutoutwind,jdbcType=VARCHAR},
+      up_longitude = #{upLongitude,jdbcType=VARCHAR},
+      up_latitude = #{upLatitude,jdbcType=VARCHAR},
+      up_unit_capacity = #{upUnitCapacity,jdbcType=VARCHAR},
+      up_variableflow_config = #{upVariableflowConfig,jdbcType=VARCHAR},
+      up_pitch_config = #{upPitchConfig,jdbcType=VARCHAR},
+      up_cooling = #{upCooling,jdbcType=VARCHAR},
+      up_models = #{upModels,jdbcType=VARCHAR},
+      up_blade = #{upBlade,jdbcType=VARCHAR},
+      up_bus_type = #{upBusType,jdbcType=VARCHAR},
+      up_hubheight = #{upHubheight,jdbcType=VARCHAR},
+      up_basic = #{upBasic,jdbcType=VARCHAR},
+      up_basic_other = #{upBasicOther,jdbcType=VARCHAR},
+      up_tower = #{upTower,jdbcType=VARCHAR},
+      up_tower_flange = #{upTowerFlange,jdbcType=VARCHAR},
+      up_tower_link = #{upTowerLink,jdbcType=VARCHAR},
+      up_tower_blueprint = #{upTowerBlueprint,jdbcType=VARCHAR},
+      up_micro_sitesel_flg = #{upMicroSiteselFlg,jdbcType=VARCHAR},
+      up_load_adap_analy_rep = #{upLoadAdapAnalyRep,jdbcType=VARCHAR},
+      up_impeller_diameter = #{upImpellerDiameter,jdbcType=VARCHAR},
+      up_running_position_no = #{upRunningPositionNo,jdbcType=VARCHAR},
+      up_base_excavation_time = #{upBaseExcavationTime,jdbcType=VARCHAR},
+      up_base_construction_time = #{upBaseConstructionTime,jdbcType=VARCHAR},
+      up_receive_shipment_begin_time = #{upReceiveShipmentBeginTime,jdbcType=VARCHAR},
+      up_receive_shipment_end_time = #{upReceiveShipmentEndTime,jdbcType=VARCHAR},
+      up_hoisting_begin_time = #{upHoistingBeginTime,jdbcType=VARCHAR},
+      up_hoisting_end_time = #{upHoistingEndTime,jdbcType=VARCHAR},
+      up_static_adjust_begin_time = #{upStaticAdjustBeginTime,jdbcType=VARCHAR},
+      up_static_adjust_end_time = #{upStaticAdjustEndTime,jdbcType=VARCHAR},
+      up_dynamic_adjust_begin_time = #{upDynamicAdjustBeginTime,jdbcType=VARCHAR},
+      up_dynamic_adjust_end_time = #{upDynamicAdjustEndTime,jdbcType=VARCHAR},
+      up_commissioning_begin_time = #{upCommissioningBeginTime,jdbcType=VARCHAR},
+      up_commissioning_end_time = #{upCommissioningEndTime,jdbcType=VARCHAR},
+      up_pre_acceptance_signature_dat = #{upPreAcceptanceSignatureDat,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      delete_flg = #{deleteFlg,jdbcType=INTEGER},
+      up_wind_speed_rating_unit = #{upWindSpeedRatingUnit,jdbcType=VARCHAR},
+      up_whether_maintenance_over = #{upWhetherMaintenanceOver,jdbcType=VARCHAR},
+      up_last_maintenance_time = #{upLastMaintenanceTime,jdbcType=VARCHAR},
+      up_classification_maintenance_t = #{upClassificationMaintenanceT,jdbcType=VARCHAR},
+      up_ticket_reservation_longitude = #{upTicketReservationLongitude,jdbcType=VARCHAR},
+      up_ticket_reservation_latitude = #{upTicketReservationLatitude,jdbcType=VARCHAR},
+      up_converter_box_number = #{upConverterBoxNumber,jdbcType=VARCHAR},
+      up_water_cooler_number = #{upWaterCoolerNumber,jdbcType=VARCHAR},
+      up_master_control_cabinet_numbe = #{upMasterControlCabinetNumbe,jdbcType=VARCHAR},
+      up_dudt_ark_number = #{upDudtArkNumber,jdbcType=VARCHAR},
+      up_brake_resistance_number = #{upBrakeResistanceNumber,jdbcType=VARCHAR},
+      up_cooling_fan_number = #{upCoolingFanNumber,jdbcType=VARCHAR},
+      up_engine_room_number = #{upEngineRoomNumber,jdbcType=VARCHAR},
+      up_wheel_hub_number = #{upWheelHubNumber,jdbcType=VARCHAR},
+      up_generator_number = #{upGeneratorNumber,jdbcType=VARCHAR},
+      up_leaf_blade_number = #{upLeafBladeNumber,jdbcType=VARCHAR},
+      up_converter_manufacturer = #{upConverterManufacturer,jdbcType=VARCHAR},
+      up_water_cooler_manufacturer = #{upWaterCoolerManufacturer,jdbcType=VARCHAR},
+      up_main_control_cabinet_manufac = #{upMainControlCabinetManufac,jdbcType=VARCHAR},
+      up_dudt_ark_manufacturer = #{upDudtArkManufacturer,jdbcType=VARCHAR},
+      up_brake_resistance_manufacture = #{upBrakeResistanceManufacture,jdbcType=VARCHAR},
+      up_cooling_fan_manufacturer = #{upCoolingFanManufacturer,jdbcType=VARCHAR},
+      up_machinery_manufacturer = #{upMachineryManufacturer,jdbcType=VARCHAR},
+      up_wheel_manufacturer = #{upWheelManufacturer,jdbcType=VARCHAR},
+      up_generator_manufacturer = #{upGeneratorManufacturer,jdbcType=VARCHAR},
+      up_leaf_blade_manufacturer = #{upLeafBladeManufacturer,jdbcType=VARCHAR},
+      up_function_position = #{upFunctionPosition,jdbcType=VARCHAR},
+      up_mat_no = #{upMatNo,jdbcType=VARCHAR},
+      up_mat_order = #{upMatOrder,jdbcType=VARCHAR},
+      up_plan_serial = #{upPlanSerial,jdbcType=VARCHAR},
+      up_tower_heights = #{upTowerHeights,jdbcType=VARCHAR},
+      up_tower_section_number = #{upTowerSectionNumber,jdbcType=VARCHAR},
+      up_leaf_blade2_number = #{upLeafBlade2Number,jdbcType=VARCHAR},
+      up_leaf_blade3_number = #{upLeafBlade3Number,jdbcType=VARCHAR},
+      up_pj_no = #{upPjNo,jdbcType=VARCHAR},
+      up_goldwind_no = #{upGoldwindNo,jdbcType=VARCHAR},
+      up_no = #{upNo,jdbcType=VARCHAR},
+      up_eqnr = #{upEqnr,jdbcType=VARCHAR},
+      up_pjwo_id = #{upPjwoId,jdbcType=VARCHAR},
+      up_into_warranty_date = #{upIntoWarrantyDate,jdbcType=VARCHAR},
+      up_out_warranty_date = #{upOutWarrantyDate,jdbcType=VARCHAR},
+      up_is_line_mark_unit = #{upIsLineMarkUnit,jdbcType=INTEGER},
+      up_gener_manu_type = #{upGenerManuType,jdbcType=VARCHAR},
+      up_gener_code = #{upGenerCode,jdbcType=VARCHAR},
+      up_gearbox_manu_type = #{upGearboxManuType,jdbcType=VARCHAR},
+      up_gearbox_code = #{upGearboxCode,jdbcType=VARCHAR},
+      up_master_config = #{upMasterConfig,jdbcType=VARCHAR},
+      up_master_program_version = #{upMasterProgramVersion,jdbcType=VARCHAR},
+      up_variableflow_program_version = #{upVariableflowProgramVersion,jdbcType=VARCHAR},
+      up_variablepitch_program_versio = #{upVariablepitchProgramVersio,jdbcType=VARCHAR},
+      up_gener_cool_mode = #{upGenerCoolMode,jdbcType=VARCHAR},
+      up_fre_convercool_mode = #{upFreConvercoolMode,jdbcType=VARCHAR},
+      up_warranty_handover_time = #{upWarrantyHandoverTime,jdbcType=VARCHAR},
+      up_is_devi = #{upIsDevi,jdbcType=INTEGER},
+      up_front_protocol_num = #{upFrontProtocolNum,jdbcType=VARCHAR},
+      up_tower_dehumidifier = #{upTowerDehumidifier,jdbcType=INTEGER},
+      up_tower_ecsystem = #{upTowerEcsystem,jdbcType=INTEGER},
+      up_tower_climbing = #{upTowerClimbing,jdbcType=INTEGER},
+      up_tower_free_climbing = #{upTowerFreeClimbing,jdbcType=INTEGER},
+      up_tower_lifting_machine = #{upTowerLiftingMachine,jdbcType=INTEGER},
+      up_dynamo_lubricating_system = #{upDynamoLubricatingSystem,jdbcType=INTEGER},
+      up_impeller_lubricating_system = #{upImpellerLubricatingSystem,jdbcType=VARCHAR},
+      up_pj_mileage = #{upPjMileage,jdbcType=BIGINT},
+      up_pitch_system = #{upPitchSystem,jdbcType=INTEGER},
+      up_anemometry_system = #{upAnemometrySystem,jdbcType=INTEGER},
+      up_cooling_system = #{upCoolingSystem,jdbcType=INTEGER},
+      up_tower_electric = #{upTowerElectric,jdbcType=INTEGER},
+      up_factory = #{upFactory,jdbcType=VARCHAR},
+      up_product_code = #{upProductCode,jdbcType=VARCHAR}
+    where up_id = #{upId,jdbcType=VARCHAR}
+  </update>
+</mapper>

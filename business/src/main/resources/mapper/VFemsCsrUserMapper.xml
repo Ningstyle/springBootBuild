@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrUserMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrUser">
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_type" jdbcType="VARCHAR" property="userType" />
+    <result column="pg_name" jdbcType="VARCHAR" property="pgName" />
+    <result column="bas_bg_id" jdbcType="VARCHAR" property="basBgId" />
+    <result column="bg_id" jdbcType="VARCHAR" property="bgId" />
+    <result column="bg_name" jdbcType="VARCHAR" property="bgName" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="systemcode" jdbcType="VARCHAR" property="systemcode" />
+  </resultMap>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrUser">
+    insert into v_fems_csr_user (user_id, user_name, user_type, 
+      pg_name, bas_bg_id, bg_id, 
+      bg_name, role_name, systemcode
+      )
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR}, 
+      #{pgName,jdbcType=VARCHAR}, #{basBgId,jdbcType=VARCHAR}, #{bgId,jdbcType=VARCHAR}, 
+      #{bgName,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{systemcode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrUser">
+    insert into v_fems_csr_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="pgName != null">
+        pg_name,
+      </if>
+      <if test="basBgId != null">
+        bas_bg_id,
+      </if>
+      <if test="bgId != null">
+        bg_id,
+      </if>
+      <if test="bgName != null">
+        bg_name,
+      </if>
+      <if test="roleName != null">
+        role_name,
+      </if>
+      <if test="systemcode != null">
+        systemcode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="pgName != null">
+        #{pgName,jdbcType=VARCHAR},
+      </if>
+      <if test="basBgId != null">
+        #{basBgId,jdbcType=VARCHAR},
+      </if>
+      <if test="bgId != null">
+        #{bgId,jdbcType=VARCHAR},
+      </if>
+      <if test="bgName != null">
+        #{bgName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="systemcode != null">
+        #{systemcode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

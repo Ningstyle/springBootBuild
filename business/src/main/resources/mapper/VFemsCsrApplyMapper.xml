@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrApplyMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrApply">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="conn_id" jdbcType="VARCHAR" property="connId" />
+    <result column="up_id" jdbcType="VARCHAR" property="upId" />
+    <result column="apply_user_id" jdbcType="VARCHAR" property="applyUserId" />
+    <result column="apply_user_name" jdbcType="VARCHAR" property="applyUserName" />
+    <result column="apply_time" jdbcType="TIMESTAMP" property="applyTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, conn_id, up_id, apply_user_id, apply_user_name, apply_time, status,type
+  </sql>
+    <select id="selectListByUserId" parameterType="com.small.business.entity.vo.Employee" resultType="com.small.business.entity.vo.VFemsCsrApplyVo">
+  SELECT DISTINCT c.id, c.conn_id connId, c.up_id upId, c.apply_user_id applyUserId, c.apply_user_name applyUserName,
+     c.apply_time applyTime, c.status,
+    a.up_seatno upSeatno,a.up_running_position_no upRunningPositionNo,a.up_pj_name upPjName,
+    a.up_pj_id upPjId
+     from v_fems_csr_unitprofile2 a,v_fems_csr_pjmember b,v_fems_csr_apply c
+  where c.up_id=a.up_id and  a.up_pj_id=b.pjmem_pj_id   and c.`status`=0 and c.type=0
+  and b.user_id = #{employee.userId,jdbcType=VARCHAR}
+  and c.type = #{employee.applyType,jdbcType=INTEGER}
+  order by c.apply_time desc
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_fems_csr_apply
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectApplyList" parameterType="java.lang.Integer" resultType="com.small.business.entity.vo.VFemsCsrApplyVo">
+     select a.id, a.conn_id connId, a.up_id upId, a.apply_user_id applyUserId, a.apply_user_name applyUserName,
+     a.apply_time applyTime, a.status,
+    b.up_seatno upSeatno,b.up_running_position_no upRunningPositionNo,b.up_pj_name upPjName,
+    b.up_pj_id upPjId
+    from v_fems_csr_apply a,v_fems_csr_unitprofile2 b
+    where  b.up_id=a.up_id and a.type=0
+    and a.STATUS=#{status,jdbcType=INTEGER}
+    order by a.apply_time desc
+  </select>
+    <select id="selectApplyLog" parameterType="java.lang.String" resultType="com.small.business.entity.vo.VFemsCsrApplyVo">
+    SELECT a.id, a.conn_id connId, a.up_id upId, a.apply_user_id applyUserId, a.apply_user_name applyUserName,a.apply_time applyTime, a.status,
+    b.examine_user_id examineUserId,b.examine_user_name examineUserName from v_fems_csr_apply a LEFT JOIN v_fems_csr_examine b on a.conn_id=b.conn_id
+    where  a.up_id=#{upId,jdbcType=VARCHAR} order by a.apply_time desc
+      </select>
+    <select id="selectExLog" parameterType="java.lang.String" resultType="com.small.business.entity.vo.VFemsCsrApplyVo">
+    SELECT b.id, b.conn_id connId, b.up_id upId, b.examine_user_id examineUserId,b.examine_user_name examineUserName, b.examine_time examineTime,  b.status, b.remarks,
+    a.apply_user_id applyUserId, a.apply_user_name applyUserName,a.apply_time applyTime
+     from v_fems_csr_apply a LEFT JOIN v_fems_csr_examine b on a.conn_id=b.conn_id
+    where  a.up_id=#{upId,jdbcType=VARCHAR} order by b.examine_time desc
+      </select>
+  <select id="selectApplyDetail" parameterType="java.lang.String" resultType="com.small.business.entity.vo.VFemsCsrApplyVo">
+  select a.id, a.conn_id connId, a.up_id upId, a.apply_user_id applyUserId, a.apply_user_name applyUserName,
+  a.apply_time applyTime, a.status,
+  b.up_seatno upSeatno,b.up_running_position_no upRunningPositionNo,b.up_pj_name upPjName,
+  b.up_pj_id upPjId
+  from v_fems_csr_apply a,v_fems_csr_unitprofile2 b
+  where  b.up_id=a.up_id and a.type=0 and a.conn_id=#{connId,jdbcType=VARCHAR}
+   </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from v_fems_csr_apply
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrApply">
+    insert into v_fems_csr_apply (id, conn_id, up_id, 
+      apply_user_id, apply_user_name, apply_time, 
+      status,type)
+    values (#{id,jdbcType=BIGINT}, #{connId,jdbcType=VARCHAR}, #{upId,jdbcType=VARCHAR}, 
+      #{applyUserId,jdbcType=VARCHAR}, #{applyUserName,jdbcType=VARCHAR}, #{applyTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER},#{type,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrApply">
+    insert into v_fems_csr_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="connId != null">
+        conn_id,
+      </if>
+      <if test="upId != null">
+        up_id,
+      </if>
+      <if test="applyUserId != null">
+        apply_user_id,
+      </if>
+      <if test="applyUserName != null">
+        apply_user_name,
+      </if>
+      <if test="applyTime != null">
+        apply_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+        <if test="type != null">
+            type,
+        </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="connId != null">
+        #{connId,jdbcType=VARCHAR},
+      </if>
+      <if test="upId != null">
+        #{upId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUserId != null">
+        #{applyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUserName != null">
+        #{applyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+        <if test="type != null">
+            #{type,jdbcType=INTEGER},
+        </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.small.business.entity.po.VFemsCsrApply">
+    update v_fems_csr_apply
+    <set>
+      <if test="connId != null">
+        conn_id = #{connId,jdbcType=VARCHAR},
+      </if>
+      <if test="upId != null">
+        up_id = #{upId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUserId != null">
+        apply_user_id = #{applyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUserName != null">
+        apply_user_name = #{applyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+        <if test="type != null">
+         type=  #{type,jdbcType=INTEGER},
+        </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.small.business.entity.po.VFemsCsrApply">
+    update v_fems_csr_apply
+    set conn_id = #{connId,jdbcType=VARCHAR},
+      up_id = #{upId,jdbcType=VARCHAR},
+      apply_user_id = #{applyUserId,jdbcType=VARCHAR},
+      apply_user_name = #{applyUserName,jdbcType=VARCHAR},
+      apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      type=  #{type,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

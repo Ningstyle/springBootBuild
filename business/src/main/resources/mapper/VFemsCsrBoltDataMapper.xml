@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrBoltDataMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrBoltData">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="bolt_id" jdbcType="BIGINT" property="boltId" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="num" jdbcType="VARCHAR" property="num" />
+    <result column="node_no" jdbcType="VARCHAR" property="nodeNo" />
+    <result column="bolt_no" jdbcType="VARCHAR" property="boltNo" />
+    <result column="quantity" jdbcType="VARCHAR" property="quantity" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, bolt_id, time, num, node_no, bolt_no, quantity
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_fems_csr_bolt_data
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from v_fems_csr_bolt_data
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrBoltData">
+    insert into v_fems_csr_bolt_data (id, bolt_id, time, 
+      num, node_no, bolt_no, 
+      quantity)
+    values (#{id,jdbcType=BIGINT}, #{boltId,jdbcType=BIGINT}, #{time,jdbcType=VARCHAR}, 
+      #{num,jdbcType=VARCHAR}, #{nodeNo,jdbcType=VARCHAR}, #{boltNo,jdbcType=VARCHAR},
+      #{quantity,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrBoltData">
+    insert into v_fems_csr_bolt_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="boltId != null">
+        bolt_id,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="nodeNo != null">
+        node_no,
+      </if>
+      <if test="boltNo != null">
+        bolt_no,
+      </if>
+      <if test="quantity != null">
+        quantity,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="boltId != null">
+        #{boltId,jdbcType=BIGINT},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeNo != null">
+        #{nodeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="boltNo != null">
+        #{boltNo,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.small.business.entity.po.VFemsCsrBoltData">
+    update v_fems_csr_bolt_data
+    <set>
+      <if test="boltId != null">
+        bolt_id = #{boltId,jdbcType=BIGINT},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeNo != null">
+        node_no = #{nodeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="boltNo != null">
+        bolt_no = #{boltNo,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        quantity = #{quantity,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.small.business.entity.po.VFemsCsrBoltData">
+    update v_fems_csr_bolt_data
+    set bolt_id = #{boltId,jdbcType=BIGINT},
+      time = #{time,jdbcType=VARCHAR},
+      num = #{num,jdbcType=VARCHAR},
+      node_no = #{nodeNo,jdbcType=VARCHAR},
+      bolt_no = #{boltNo,jdbcType=VARCHAR},
+      quantity = #{quantity,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+</mapper>

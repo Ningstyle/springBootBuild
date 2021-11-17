@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrOverhaulOrderMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrOverhaulOrder">
+    <result column="pj_id" jdbcType="VARCHAR" property="pjId" />
+    <result column="pj_no" jdbcType="VARCHAR" property="pjNo" />
+    <result column="pj_name" jdbcType="VARCHAR" property="pjName" />
+    <result column="bg_name" jdbcType="VARCHAR" property="bgName" />
+    <result column="task_id" jdbcType="VARCHAR" property="taskId" />
+    <result column="task_no" jdbcType="VARCHAR" property="taskNo" />
+    <result column="task_type" jdbcType="VARCHAR" property="taskType" />
+    <result column="task_type_name" jdbcType="VARCHAR" property="taskTypeName" />
+    <result column="task_up_id" jdbcType="VARCHAR" property="taskUpId" />
+    <result column="up_running_position_no" jdbcType="VARCHAR" property="upRunningPositionNo" />
+    <result column="up_seatno" jdbcType="VARCHAR" property="upSeatno" />
+    <result column="task_overhaul_batch" jdbcType="VARCHAR" property="taskOverhaulBatch" />
+    <result column="task_overhaul_type" jdbcType="VARCHAR" property="taskOverhaulType" />
+    <result column="overhaul_type_name" jdbcType="VARCHAR" property="overhaulTypeName" />
+    <result column="so_manage_user_id" jdbcType="VARCHAR" property="soManageUserId" />
+    <result column="so_manage_user_name" jdbcType="VARCHAR" property="soManageUserName" />
+    <result column="task_status_flg" jdbcType="VARCHAR" property="taskStatusFlg" />
+    <result column="status_name" jdbcType="VARCHAR" property="statusName" />
+    <result column="task_start_time" jdbcType="VARCHAR" property="taskStartTime" />
+    <result column="task_end_time" jdbcType="VARCHAR" property="taskEndTime" />
+  </resultMap>
+  <select id="selectByUpId" parameterType="java.lang.String" resultType="com.small.business.entity.vo.VFemsCsrOverhaulOrderVo">
+    SELECT pj_id pjId, pj_no pjNo, pj_name pjName,
+      bg_name bgName, bg_id bgId, asswo_id taskId,
+      asswo_no taskNo, asswmst_type_type taskType, asswmst_type taskTypeName,
+      up_id taskUpId, up_running_position_no upRunningPositionNo, up_seatno upSeatno,
+			"" taskOverhaulBatch,"" taskOverhaulType,"" overhaulTypeName,
+      person_liable_name soManageUserName, person_liable_id soManageUserId, asswo_status taskStatusFlg,
+      asswo_status_name statusName, asswo_start_time taskStartTime, asswo_end_time taskEndTime from v_fems_csr_construction_order where up_id=#{upId,jdbcType=VARCHAR}
+    union all
+    SELECT pj_id pjId, pj_no pjNo, pj_name pjName,
+      bg_name bgName,"" bgId, task_id taskId, task_no taskNo,
+      task_type taskType, task_type_name taskTypeName, task_up_id taskUpId,
+      up_running_position_no upRunningPositionNo, up_seatno upSeatno, task_overhaul_batch taskOverhaulBatch,
+      task_overhaul_type taskOverhaulType, overhaul_type_name overhaulTypeName, so_manage_user_id soManageUserId,
+      so_manage_user_name soManageUserName, task_status_flg taskStatusFlg, status_name statusName,
+      task_start_time taskStartTime, task_end_time taskEndTime from v_fems_csr_overhaul_order where task_up_id=#{upId,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrOverhaulOrder">
+    insert into v_fems_csr_overhaul_order (pj_id, pj_no, pj_name, 
+      bg_name, task_id, task_no, 
+      task_type, task_type_name, task_up_id, 
+      up_running_position_no, up_seatno, task_overhaul_batch, 
+      task_overhaul_type, overhaul_type_name, so_manage_user_id, 
+      so_manage_user_name, task_status_flg, status_name, 
+      task_start_time, task_end_time)
+    values (#{pjId,jdbcType=VARCHAR}, #{pjNo,jdbcType=VARCHAR}, #{pjName,jdbcType=VARCHAR}, 
+      #{bgName,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, #{taskNo,jdbcType=VARCHAR}, 
+      #{taskType,jdbcType=VARCHAR}, #{taskTypeName,jdbcType=VARCHAR}, #{taskUpId,jdbcType=VARCHAR}, 
+      #{upRunningPositionNo,jdbcType=VARCHAR}, #{upSeatno,jdbcType=VARCHAR}, #{taskOverhaulBatch,jdbcType=VARCHAR}, 
+      #{taskOverhaulType,jdbcType=VARCHAR}, #{overhaulTypeName,jdbcType=VARCHAR}, #{soManageUserId,jdbcType=VARCHAR}, 
+      #{soManageUserName,jdbcType=VARCHAR}, #{taskStatusFlg,jdbcType=VARCHAR}, #{statusName,jdbcType=VARCHAR}, 
+      #{taskStartTime,jdbcType=VARCHAR}, #{taskEndTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrOverhaulOrder">
+    insert into v_fems_csr_overhaul_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pjId != null">
+        pj_id,
+      </if>
+      <if test="pjNo != null">
+        pj_no,
+      </if>
+      <if test="pjName != null">
+        pj_name,
+      </if>
+      <if test="bgName != null">
+        bg_name,
+      </if>
+      <if test="taskId != null">
+        task_id,
+      </if>
+      <if test="taskNo != null">
+        task_no,
+      </if>
+      <if test="taskType != null">
+        task_type,
+      </if>
+      <if test="taskTypeName != null">
+        task_type_name,
+      </if>
+      <if test="taskUpId != null">
+        task_up_id,
+      </if>
+      <if test="upRunningPositionNo != null">
+        up_running_position_no,
+      </if>
+      <if test="upSeatno != null">
+        up_seatno,
+      </if>
+      <if test="taskOverhaulBatch != null">
+        task_overhaul_batch,
+      </if>
+      <if test="taskOverhaulType != null">
+        task_overhaul_type,
+      </if>
+      <if test="overhaulTypeName != null">
+        overhaul_type_name,
+      </if>
+      <if test="soManageUserId != null">
+        so_manage_user_id,
+      </if>
+      <if test="soManageUserName != null">
+        so_manage_user_name,
+      </if>
+      <if test="taskStatusFlg != null">
+        task_status_flg,
+      </if>
+      <if test="statusName != null">
+        status_name,
+      </if>
+      <if test="taskStartTime != null">
+        task_start_time,
+      </if>
+      <if test="taskEndTime != null">
+        task_end_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pjId != null">
+        #{pjId,jdbcType=VARCHAR},
+      </if>
+      <if test="pjNo != null">
+        #{pjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pjName != null">
+        #{pjName,jdbcType=VARCHAR},
+      </if>
+      <if test="bgName != null">
+        #{bgName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskId != null">
+        #{taskId,jdbcType=VARCHAR},
+      </if>
+      <if test="taskNo != null">
+        #{taskNo,jdbcType=VARCHAR},
+      </if>
+      <if test="taskType != null">
+        #{taskType,jdbcType=VARCHAR},
+      </if>
+      <if test="taskTypeName != null">
+        #{taskTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskUpId != null">
+        #{taskUpId,jdbcType=VARCHAR},
+      </if>
+      <if test="upRunningPositionNo != null">
+        #{upRunningPositionNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upSeatno != null">
+        #{upSeatno,jdbcType=VARCHAR},
+      </if>
+      <if test="taskOverhaulBatch != null">
+        #{taskOverhaulBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="taskOverhaulType != null">
+        #{taskOverhaulType,jdbcType=VARCHAR},
+      </if>
+      <if test="overhaulTypeName != null">
+        #{overhaulTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="soManageUserId != null">
+        #{soManageUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="soManageUserName != null">
+        #{soManageUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskStatusFlg != null">
+        #{taskStatusFlg,jdbcType=VARCHAR},
+      </if>
+      <if test="statusName != null">
+        #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskStartTime != null">
+        #{taskStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="taskEndTime != null">
+        #{taskEndTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrProjectextMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrProjectext">
+    <result column="pj_id" jdbcType="VARCHAR" property="pjId" />
+    <result column="pj_contr_id" jdbcType="VARCHAR" property="pjContrId" />
+    <result column="pj_pg_id" jdbcType="VARCHAR" property="pjPgId" />
+    <result column="pg_name" jdbcType="VARCHAR" property="pgName" />
+    <result column="pj_bg_id" jdbcType="VARCHAR" property="pjBgId" />
+    <result column="bg_name" jdbcType="VARCHAR" property="bgName" />
+    <result column="pj_no" jdbcType="VARCHAR" property="pjNo" />
+    <result column="pj_name" jdbcType="VARCHAR" property="pjName" />
+    <result column="pj_delivery_addr" jdbcType="VARCHAR" property="pjDeliveryAddr" />
+    <result column="pj_manager_oano" jdbcType="VARCHAR" property="pjManagerOano" />
+    <result column="pj_manager" jdbcType="VARCHAR" property="pjManager" />
+    <result column="pj_lng_type" jdbcType="VARCHAR" property="pjLngType" />
+    <result column="pj_booster_stat_lng" jdbcType="VARCHAR" property="pjBoosterStatLng" />
+    <result column="pj_lat_type" jdbcType="VARCHAR" property="pjLatType" />
+    <result column="pj_booster_stat_lat" jdbcType="VARCHAR" property="pjBoosterStatLat" />
+    <result column="pj_terrain_type" jdbcType="VARCHAR" property="pjTerrainType" />
+    <result column="pj_stage" jdbcType="VARCHAR" property="pjStage" />
+    <result column="pj_stage_desc" jdbcType="VARCHAR" property="pjStageDesc" />
+  </resultMap>
+
+  <select id="selectAllByPjId" resultType="com.small.business.entity.po.VFemsCsrProjectext">
+    select a.*,(SELECT count(1) FROM v_fems_csr_unitprofile2 b where a.pj_id=b.up_pj_id)upNum  from v_fems_csr_projectext a  where a.pj_id in
+    <foreach collection="pjId" item="item" index="index" open="(" close=")" separator=",">
+      #{item}
+    </foreach>
+    <if test="vFemsCsrProjectext.pgName!=null and vFemsCsrProjectext.pgName!=''">
+        and a.pg_name like CONCAT('%',#{vFemsCsrProjectext.pgName,jdbcType=VARCHAR},'%')
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrProjectext">
+    insert into v_fems_csr_projectext (pj_id, pj_contr_id, pj_pg_id, 
+      pg_name, pj_bg_id, bg_name, 
+      pj_no, pj_name, pj_delivery_addr, 
+      pj_manager_oano, pj_manager, pj_lng_type, 
+      pj_booster_stat_lng, pj_lat_type, pj_booster_stat_lat, 
+      pj_terrain_type,pj_stage,pj_stage_desc)
+    values (#{pjId,jdbcType=VARCHAR}, #{pjContrId,jdbcType=VARCHAR}, #{pjPgId,jdbcType=VARCHAR}, 
+      #{pgName,jdbcType=VARCHAR}, #{pjBgId,jdbcType=VARCHAR}, #{bgName,jdbcType=VARCHAR}, 
+      #{pjNo,jdbcType=VARCHAR}, #{pjName,jdbcType=VARCHAR}, #{pjDeliveryAddr,jdbcType=VARCHAR}, 
+      #{pjManagerOano,jdbcType=VARCHAR}, #{pjManager,jdbcType=VARCHAR}, #{pjLngType,jdbcType=VARCHAR}, 
+      #{pjBoosterStatLng,jdbcType=VARCHAR}, #{pjLatType,jdbcType=VARCHAR}, #{pjBoosterStatLat,jdbcType=VARCHAR}, 
+      #{pjTerrainType,jdbcType=VARCHAR},#{pjStage,jdbcType=VARCHAR},#{pjStageDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrProjectext">
+    insert into v_fems_csr_projectext
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pjId != null">
+        pj_id,
+      </if>
+      <if test="pjContrId != null">
+        pj_contr_id,
+      </if>
+      <if test="pjPgId != null">
+        pj_pg_id,
+      </if>
+      <if test="pgName != null">
+        pg_name,
+      </if>
+      <if test="pjBgId != null">
+        pj_bg_id,
+      </if>
+      <if test="bgName != null">
+        bg_name,
+      </if>
+      <if test="pjNo != null">
+        pj_no,
+      </if>
+      <if test="pjName != null">
+        pj_name,
+      </if>
+      <if test="pjDeliveryAddr != null">
+        pj_delivery_addr,
+      </if>
+      <if test="pjManagerOano != null">
+        pj_manager_oano,
+      </if>
+      <if test="pjManager != null">
+        pj_manager,
+      </if>
+      <if test="pjLngType != null">
+        pj_lng_type,
+      </if>
+      <if test="pjBoosterStatLng != null">
+        pj_booster_stat_lng,
+      </if>
+      <if test="pjLatType != null">
+        pj_lat_type,
+      </if>
+      <if test="pjBoosterStatLat != null">
+        pj_booster_stat_lat,
+      </if>
+      <if test="pjTerrainType != null">
+        pj_terrain_type,
+      </if>
+      <if test="pjStage != null">
+        pj_stage,
+      </if>
+      <if test="pjStageDesc != null">
+        pj_stage_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pjId != null">
+        #{pjId,jdbcType=VARCHAR},
+      </if>
+      <if test="pjContrId != null">
+        #{pjContrId,jdbcType=VARCHAR},
+      </if>
+      <if test="pjPgId != null">
+        #{pjPgId,jdbcType=VARCHAR},
+      </if>
+      <if test="pgName != null">
+        #{pgName,jdbcType=VARCHAR},
+      </if>
+      <if test="pjBgId != null">
+        #{pjBgId,jdbcType=VARCHAR},
+      </if>
+      <if test="bgName != null">
+        #{bgName,jdbcType=VARCHAR},
+      </if>
+      <if test="pjNo != null">
+        #{pjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pjName != null">
+        #{pjName,jdbcType=VARCHAR},
+      </if>
+      <if test="pjDeliveryAddr != null">
+        #{pjDeliveryAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="pjManagerOano != null">
+        #{pjManagerOano,jdbcType=VARCHAR},
+      </if>
+      <if test="pjManager != null">
+        #{pjManager,jdbcType=VARCHAR},
+      </if>
+      <if test="pjLngType != null">
+        #{pjLngType,jdbcType=VARCHAR},
+      </if>
+      <if test="pjBoosterStatLng != null">
+        #{pjBoosterStatLng,jdbcType=VARCHAR},
+      </if>
+      <if test="pjLatType != null">
+        #{pjLatType,jdbcType=VARCHAR},
+      </if>
+      <if test="pjBoosterStatLat != null">
+        #{pjBoosterStatLat,jdbcType=VARCHAR},
+      </if>
+      <if test="pjTerrainType != null">
+        #{pjTerrainType,jdbcType=VARCHAR},
+      </if>
+      <if test="pjStage != null">
+         #{pjStage,jdbcType=VARCHAR},
+      </if>
+      <if test="pjStageDesc != null">
+        #{pjStageDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

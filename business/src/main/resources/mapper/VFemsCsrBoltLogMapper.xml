@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrBoltLogMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrBoltLog">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="bolt_id" jdbcType="BIGINT" property="boltId" />
+    <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+    <result column="file_path" jdbcType="VARCHAR" property="filePath" />
+    <result column="equipment_info" jdbcType="VARCHAR" property="equipmentInfo" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="up_name" jdbcType="VARCHAR" property="upName" />
+    <result column="node_no" jdbcType="VARCHAR" property="nodeNo" />
+    <result column="bolt_no" jdbcType="VARCHAR" property="boltNo" />
+    <result column="dimension" jdbcType="VARCHAR" property="dimension" />
+    <result column="target_value" jdbcType="VARCHAR" property="targetValue" />
+    <result column="is_standard" jdbcType="INTEGER" property="isStandard" />
+    <result column="upload_time" jdbcType="TIMESTAMP" property="uploadTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user_id" jdbcType="VARCHAR" property="updateUserId" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="create_user_id" jdbcType="VARCHAR" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="up_id" jdbcType="VARCHAR" property="upId" />
+    <result column="up_seatno" jdbcType="VARCHAR" property="upSeatno" />
+    <result column="up_running_position_no" jdbcType="VARCHAR" property="upRunningPositionNo" />
+    <result column="up_pj_id" jdbcType="VARCHAR" property="upPjId" />
+    <result column="up_pj_name" jdbcType="VARCHAR" property="upPjName" />
+    <result column="construction_stage" jdbcType="VARCHAR" property="constructionStage" />
+    <result column="construction_stage_id" jdbcType="VARCHAR" property="constructionStageId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, bolt_id, file_name, file_path, equipment_info, operator, up_name, node_no, bolt_no, 
+    dimension, target_value, is_standard, upload_time, update_time, update_user_id, update_user_name, 
+    create_user_id, create_user_name, up_id, up_seatno, up_running_position_no, up_pj_id, 
+    up_pj_name, construction_stage, construction_stage_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_fems_csr_bolt_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from v_fems_csr_bolt_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrBoltLog">
+    insert into v_fems_csr_bolt_log (id, bolt_id, file_name, 
+      file_path, equipment_info, operator, 
+      up_name, node_no, bolt_no, 
+      dimension, target_value, is_standard, 
+      upload_time, update_time, update_user_id, 
+      update_user_name, create_user_id, create_user_name, 
+      up_id, up_seatno, up_running_position_no, 
+      up_pj_id, up_pj_name, construction_stage, 
+      construction_stage_id)
+    values (#{id,jdbcType=BIGINT}, #{boltId,jdbcType=BIGINT}, #{fileName,jdbcType=VARCHAR}, 
+      #{filePath,jdbcType=VARCHAR}, #{equipmentInfo,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{upName,jdbcType=VARCHAR}, #{nodeNo,jdbcType=VARCHAR}, #{boltNo,jdbcType=VARCHAR}, 
+      #{dimension,jdbcType=VARCHAR}, #{targetValue,jdbcType=VARCHAR}, #{isStandard,jdbcType=INTEGER}, 
+      #{uploadTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=VARCHAR}, 
+      #{updateUserName,jdbcType=VARCHAR}, #{createUserId,jdbcType=VARCHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{upId,jdbcType=VARCHAR}, #{upSeatno,jdbcType=VARCHAR}, #{upRunningPositionNo,jdbcType=VARCHAR}, 
+      #{upPjId,jdbcType=VARCHAR}, #{upPjName,jdbcType=VARCHAR}, #{constructionStage,jdbcType=VARCHAR}, 
+      #{constructionStageId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrBoltLog">
+    insert into v_fems_csr_bolt_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="boltId != null">
+        bolt_id,
+      </if>
+      <if test="fileName != null">
+        file_name,
+      </if>
+      <if test="filePath != null">
+        file_path,
+      </if>
+      <if test="equipmentInfo != null">
+        equipment_info,
+      </if>
+      <if test="operator != null">
+        operator,
+      </if>
+      <if test="upName != null">
+        up_name,
+      </if>
+      <if test="nodeNo != null">
+        node_no,
+      </if>
+      <if test="boltNo != null">
+        bolt_no,
+      </if>
+      <if test="dimension != null">
+        dimension,
+      </if>
+      <if test="targetValue != null">
+        target_value,
+      </if>
+      <if test="isStandard != null">
+        is_standard,
+      </if>
+      <if test="uploadTime != null">
+        upload_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUserId != null">
+        update_user_id,
+      </if>
+      <if test="updateUserName != null">
+        update_user_name,
+      </if>
+      <if test="createUserId != null">
+        create_user_id,
+      </if>
+      <if test="createUserName != null">
+        create_user_name,
+      </if>
+      <if test="upId != null">
+        up_id,
+      </if>
+      <if test="upSeatno != null">
+        up_seatno,
+      </if>
+      <if test="upRunningPositionNo != null">
+        up_running_position_no,
+      </if>
+      <if test="upPjId != null">
+        up_pj_id,
+      </if>
+      <if test="upPjName != null">
+        up_pj_name,
+      </if>
+      <if test="constructionStage != null">
+        construction_stage,
+      </if>
+      <if test="constructionStageId != null">
+        construction_stage_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="boltId != null">
+        #{boltId,jdbcType=BIGINT},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="filePath != null">
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentInfo != null">
+        #{equipmentInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="upName != null">
+        #{upName,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeNo != null">
+        #{nodeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="boltNo != null">
+        #{boltNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dimension != null">
+        #{dimension,jdbcType=VARCHAR},
+      </if>
+      <if test="targetValue != null">
+        #{targetValue,jdbcType=VARCHAR},
+      </if>
+      <if test="isStandard != null">
+        #{isStandard,jdbcType=INTEGER},
+      </if>
+      <if test="uploadTime != null">
+        #{uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        #{updateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserName != null">
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="upId != null">
+        #{upId,jdbcType=VARCHAR},
+      </if>
+      <if test="upSeatno != null">
+        #{upSeatno,jdbcType=VARCHAR},
+      </if>
+      <if test="upRunningPositionNo != null">
+        #{upRunningPositionNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjId != null">
+        #{upPjId,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjName != null">
+        #{upPjName,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionStage != null">
+        #{constructionStage,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionStageId != null">
+        #{constructionStageId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.small.business.entity.po.VFemsCsrBoltLog">
+    update v_fems_csr_bolt_log
+    <set>
+      <if test="boltId != null">
+        bolt_id = #{boltId,jdbcType=BIGINT},
+      </if>
+      <if test="fileName != null">
+        file_name = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="filePath != null">
+        file_path = #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentInfo != null">
+        equipment_info = #{equipmentInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="upName != null">
+        up_name = #{upName,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeNo != null">
+        node_no = #{nodeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="boltNo != null">
+        bolt_no = #{boltNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dimension != null">
+        dimension = #{dimension,jdbcType=VARCHAR},
+      </if>
+      <if test="targetValue != null">
+        target_value = #{targetValue,jdbcType=VARCHAR},
+      </if>
+      <if test="isStandard != null">
+        is_standard = #{isStandard,jdbcType=INTEGER},
+      </if>
+      <if test="uploadTime != null">
+        upload_time = #{uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null">
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserName != null">
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="upId != null">
+        up_id = #{upId,jdbcType=VARCHAR},
+      </if>
+      <if test="upSeatno != null">
+        up_seatno = #{upSeatno,jdbcType=VARCHAR},
+      </if>
+      <if test="upRunningPositionNo != null">
+        up_running_position_no = #{upRunningPositionNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjId != null">
+        up_pj_id = #{upPjId,jdbcType=VARCHAR},
+      </if>
+      <if test="upPjName != null">
+        up_pj_name = #{upPjName,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionStage != null">
+        construction_stage = #{constructionStage,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionStageId != null">
+        construction_stage_id = #{constructionStageId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.small.business.entity.po.VFemsCsrBoltLog">
+    update v_fems_csr_bolt_log
+    set bolt_id = #{boltId,jdbcType=BIGINT},
+      file_name = #{fileName,jdbcType=VARCHAR},
+      file_path = #{filePath,jdbcType=VARCHAR},
+      equipment_info = #{equipmentInfo,jdbcType=VARCHAR},
+      operator = #{operator,jdbcType=VARCHAR},
+      up_name = #{upName,jdbcType=VARCHAR},
+      node_no = #{nodeNo,jdbcType=VARCHAR},
+      bolt_no = #{boltNo,jdbcType=VARCHAR},
+      dimension = #{dimension,jdbcType=VARCHAR},
+      target_value = #{targetValue,jdbcType=VARCHAR},
+      is_standard = #{isStandard,jdbcType=INTEGER},
+      upload_time = #{uploadTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      up_id = #{upId,jdbcType=VARCHAR},
+      up_seatno = #{upSeatno,jdbcType=VARCHAR},
+      up_running_position_no = #{upRunningPositionNo,jdbcType=VARCHAR},
+      up_pj_id = #{upPjId,jdbcType=VARCHAR},
+      up_pj_name = #{upPjName,jdbcType=VARCHAR},
+      construction_stage = #{constructionStage,jdbcType=VARCHAR},
+      construction_stage_id = #{constructionStageId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+</mapper>

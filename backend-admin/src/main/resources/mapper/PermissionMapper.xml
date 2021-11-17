@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.admin.dao.PermissionMapper">
+  <resultMap id="BaseResultMap" type="com.small.admin.entity.po.Permission">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="action_method" jdbcType="VARCHAR" property="actionMethod" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="show_always" jdbcType="BIT" property="showAlways" />
+    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, description, type, level, icon, path, action_method, parent_id, sort_order, status, show_always,
+    del_flag, create_by, create_time, update_by, update_time
+  </sql>
+    <select id="findByUserId" resultType="com.small.admin.entity.po.Permission">
+      SELECT DISTINCT p.id, p.name, p.description, p.type, p.level, p.icon, p.path, p.action_method, p.parent_id, p.sort_order, p.status, p.show_always
+      FROM small_user u
+      LEFT JOIN small_user_role ur ON u.id = ur.user_id
+      LEFT JOIN small_role_permission rp ON ur.role_id = rp.role_id
+      LEFT JOIN small_permission p ON p.id = rp.permission_id
+      WHERE u.id = #{userId} AND p.status = 0
+      ORDER BY p.sort_order ASC
+    </select>
+  <select id="findByRoleId" parameterType="string" resultType="com.small.admin.entity.po.Permission">
+    SELECT DISTINCT p.id, p.name, p.description, p.type, p.level, p.icon, p.path, p.action_method, p.parent_id, p.sort_order, p.status, p.show_always
+      FROM small_role r
+      LEFT JOIN small_role_permission rp ON r.id = rp.role_id
+      LEFT JOIN small_permission p ON p.id = rp.permission_id
+      WHERE r.id = #{roleId} AND p.status = 0
+      ORDER BY p.sort_order ASC
+  </select>
+</mapper>

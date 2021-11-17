@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrConstructionOrderMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrConstructionOrder">
+    <result column="pj_id" jdbcType="VARCHAR" property="pjId" />
+    <result column="pj_no" jdbcType="VARCHAR" property="pjNo" />
+    <result column="pj_name" jdbcType="VARCHAR" property="pjName" />
+    <result column="bg_name" jdbcType="VARCHAR" property="bgName" />
+    <result column="bg_id" jdbcType="VARCHAR" property="bgId" />
+    <result column="asswo_id" jdbcType="VARCHAR" property="asswoId" />
+    <result column="asswo_no" jdbcType="VARCHAR" property="asswoNo" />
+    <result column="asswmst_type_type" jdbcType="VARCHAR" property="asswmstTypeType" />
+    <result column="asswmst_type" jdbcType="VARCHAR" property="asswmstType" />
+    <result column="up_id" jdbcType="VARCHAR" property="upId" />
+    <result column="up_running_position_no" jdbcType="VARCHAR" property="upRunningPositionNo" />
+    <result column="up_seatno" jdbcType="VARCHAR" property="upSeatno" />
+    <result column="person_liable_name" jdbcType="VARCHAR" property="personLiableName" />
+    <result column="person_liable_id" jdbcType="VARCHAR" property="personLiableId" />
+    <result column="asswo_status" jdbcType="VARCHAR" property="asswoStatus" />
+    <result column="asswo_status_name" jdbcType="VARCHAR" property="asswoStatusName" />
+    <result column="asswo_start_time" jdbcType="VARCHAR" property="asswoStartTime" />
+    <result column="asswo_end_time" jdbcType="VARCHAR" property="asswoEndTime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrConstructionOrder">
+    insert into v_fems_csr_construction_order (pj_id, pj_no, pj_name, 
+      bg_name, bg_id, asswo_id, 
+      asswo_no, asswmst_type_type, asswmst_type, 
+      up_id, up_running_position_no, up_seatno, 
+      person_liable_name, person_liable_id, asswo_status, 
+      asswo_status_name, asswo_start_time, asswo_end_time
+      )
+    values (#{pjId,jdbcType=VARCHAR}, #{pjNo,jdbcType=VARCHAR}, #{pjName,jdbcType=VARCHAR}, 
+      #{bgName,jdbcType=VARCHAR}, #{bgId,jdbcType=VARCHAR}, #{asswoId,jdbcType=VARCHAR}, 
+      #{asswoNo,jdbcType=VARCHAR}, #{asswmstTypeType,jdbcType=VARCHAR}, #{asswmstType,jdbcType=VARCHAR}, 
+      #{upId,jdbcType=VARCHAR}, #{upRunningPositionNo,jdbcType=VARCHAR}, #{upSeatno,jdbcType=VARCHAR}, 
+      #{personLiableName,jdbcType=VARCHAR}, #{personLiableId,jdbcType=VARCHAR}, #{asswoStatus,jdbcType=VARCHAR}, 
+      #{asswoStatusName,jdbcType=VARCHAR}, #{asswoStartTime,jdbcType=VARCHAR}, #{asswoEndTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrConstructionOrder">
+    insert into v_fems_csr_construction_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pjId != null">
+        pj_id,
+      </if>
+      <if test="pjNo != null">
+        pj_no,
+      </if>
+      <if test="pjName != null">
+        pj_name,
+      </if>
+      <if test="bgName != null">
+        bg_name,
+      </if>
+      <if test="bgId != null">
+        bg_id,
+      </if>
+      <if test="asswoId != null">
+        asswo_id,
+      </if>
+      <if test="asswoNo != null">
+        asswo_no,
+      </if>
+      <if test="asswmstTypeType != null">
+        asswmst_type_type,
+      </if>
+      <if test="asswmstType != null">
+        asswmst_type,
+      </if>
+      <if test="upId != null">
+        up_id,
+      </if>
+      <if test="upRunningPositionNo != null">
+        up_running_position_no,
+      </if>
+      <if test="upSeatno != null">
+        up_seatno,
+      </if>
+      <if test="personLiableName != null">
+        person_liable_name,
+      </if>
+      <if test="personLiableId != null">
+        person_liable_id,
+      </if>
+      <if test="asswoStatus != null">
+        asswo_status,
+      </if>
+      <if test="asswoStatusName != null">
+        asswo_status_name,
+      </if>
+      <if test="asswoStartTime != null">
+        asswo_start_time,
+      </if>
+      <if test="asswoEndTime != null">
+        asswo_end_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pjId != null">
+        #{pjId,jdbcType=VARCHAR},
+      </if>
+      <if test="pjNo != null">
+        #{pjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pjName != null">
+        #{pjName,jdbcType=VARCHAR},
+      </if>
+      <if test="bgName != null">
+        #{bgName,jdbcType=VARCHAR},
+      </if>
+      <if test="bgId != null">
+        #{bgId,jdbcType=VARCHAR},
+      </if>
+      <if test="asswoId != null">
+        #{asswoId,jdbcType=VARCHAR},
+      </if>
+      <if test="asswoNo != null">
+        #{asswoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="asswmstTypeType != null">
+        #{asswmstTypeType,jdbcType=VARCHAR},
+      </if>
+      <if test="asswmstType != null">
+        #{asswmstType,jdbcType=VARCHAR},
+      </if>
+      <if test="upId != null">
+        #{upId,jdbcType=VARCHAR},
+      </if>
+      <if test="upRunningPositionNo != null">
+        #{upRunningPositionNo,jdbcType=VARCHAR},
+      </if>
+      <if test="upSeatno != null">
+        #{upSeatno,jdbcType=VARCHAR},
+      </if>
+      <if test="personLiableName != null">
+        #{personLiableName,jdbcType=VARCHAR},
+      </if>
+      <if test="personLiableId != null">
+        #{personLiableId,jdbcType=VARCHAR},
+      </if>
+      <if test="asswoStatus != null">
+        #{asswoStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="asswoStatusName != null">
+        #{asswoStatusName,jdbcType=VARCHAR},
+      </if>
+      <if test="asswoStartTime != null">
+        #{asswoStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="asswoEndTime != null">
+        #{asswoEndTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

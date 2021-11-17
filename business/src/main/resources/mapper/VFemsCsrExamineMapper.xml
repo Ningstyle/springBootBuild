@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.business.dao.VFemsCsrExamineMapper">
+  <resultMap id="BaseResultMap" type="com.small.business.entity.po.VFemsCsrExamine">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="conn_id" jdbcType="VARCHAR" property="connId" />
+    <result column="up_id" jdbcType="VARCHAR" property="upId" />
+    <result column="examine_user_id" jdbcType="VARCHAR" property="examineUserId" />
+    <result column="examine_user_name" jdbcType="VARCHAR" property="examineUserName" />
+    <result column="examine_time" jdbcType="TIMESTAMP" property="examineTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, conn_id, up_id, examine_user_id, examine_user_name, examine_time, status, remarks,type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_fems_csr_examine
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from v_fems_csr_examine
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.small.business.entity.po.VFemsCsrExamine">
+    insert into v_fems_csr_examine (id, conn_id, up_id, 
+      examine_user_id, examine_user_name, examine_time, 
+      status, remarks,type)
+    values (#{id,jdbcType=BIGINT}, #{connId,jdbcType=VARCHAR}, #{upId,jdbcType=VARCHAR}, 
+      #{examineUserId,jdbcType=VARCHAR}, #{examineUserName,jdbcType=VARCHAR}, #{examineTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.small.business.entity.po.VFemsCsrExamine">
+    insert into v_fems_csr_examine
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="connId != null">
+        conn_id,
+      </if>
+      <if test="upId != null">
+        up_id,
+      </if>
+      <if test="examineUserId != null">
+        examine_user_id,
+      </if>
+      <if test="examineUserName != null">
+        examine_user_name,
+      </if>
+      <if test="examineTime != null">
+        examine_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="connId != null">
+        #{connId,jdbcType=VARCHAR},
+      </if>
+      <if test="upId != null">
+        #{upId,jdbcType=VARCHAR},
+      </if>
+      <if test="examineUserId != null">
+        #{examineUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="examineUserName != null">
+        #{examineUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="examineTime != null">
+        #{examineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.small.business.entity.po.VFemsCsrExamine">
+    update v_fems_csr_examine
+    <set>
+      <if test="connId != null">
+        conn_id = #{connId,jdbcType=VARCHAR},
+      </if>
+      <if test="upId != null">
+        up_id = #{upId,jdbcType=VARCHAR},
+      </if>
+      <if test="examineUserId != null">
+        examine_user_id = #{examineUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="examineUserName != null">
+        examine_user_name = #{examineUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="examineTime != null">
+        examine_time = #{examineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type= #{type,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.small.business.entity.po.VFemsCsrExamine">
+    update v_fems_csr_examine
+    set conn_id = #{connId,jdbcType=VARCHAR},
+      up_id = #{upId,jdbcType=VARCHAR},
+      examine_user_id = #{examineUserId,jdbcType=VARCHAR},
+      examine_user_name = #{examineUserName,jdbcType=VARCHAR},
+      examine_time = #{examineTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      type= #{type,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
